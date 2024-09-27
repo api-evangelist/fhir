@@ -9,10 +9,11 @@ description: >-
   implementing a solution based on FHIR.
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/apis-json/artisanal/main/apis/template.yml
-created: 2024/01/01
-modified: 2024/01/01
-specificationVersion: '0.16'
-tags: []
+created: 2024-07-11
+modified: 2024-07-11
+specificationVersion: '0.18'
+tags:
+  - Healthcare
 apis:
   - name: Fast Healthcare Interoperability Resources API
     description: >-
@@ -29,7 +30,8 @@ apis:
     properties:
       - type: Documentation
         url: https://www.hl7.org/fhir/
-    overlays: []
+      - type: OpenAPI
+        url: properties/fhir-openapi-original.yml
     aid: >-
       fast-healthcare-interoperability-resources-fhir:fast-healthcare-interoperability-resources-api
 common:
@@ -41,7 +43,5 @@ maintainers:
     email: info@apievangelist.com
 overlays:
   - type: APIs.io Search
-    url: overlays/apis-io-search.yml
-  - type: API Evangelist Ratings
     url: overlays/apis-io-search.yml
 aid: fast-healthcare-interoperability-resources-fhir
