@@ -1,0 +1,18 @@
+meta {
+  name: Search all resources of type Goal based on a set of criteria
+  type: http
+  seq: 92
+}
+
+get {
+  url: {{baseUrl}}/Goal
+  body: none
+  auth: none
+}
+
+params:query {
+  ~description: 
+  ~lifecycle-status: 
+  ~patient: 
+  ~target-date: 
+}

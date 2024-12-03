@@ -1,0 +1,11 @@
+meta {
+  name: Read a past state of the resource
+  type: http
+  seq: 270
+}
+
+get {
+  url: {{baseUrl}}/Specimen/:rid/_history/:hid
+  body: none
+  auth: none
+}

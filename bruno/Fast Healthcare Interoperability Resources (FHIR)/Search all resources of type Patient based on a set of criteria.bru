@@ -1,0 +1,22 @@
+meta {
+  name: Search all resources of type Patient based on a set of criteria
+  type: http
+  seq: 182
+}
+
+get {
+  url: {{baseUrl}}/Patient
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_id: 
+  ~birthdate: 
+  ~death-date: 
+  ~family: 
+  ~gender: 
+  ~given: 
+  ~identifier: 
+  ~name: 
+}

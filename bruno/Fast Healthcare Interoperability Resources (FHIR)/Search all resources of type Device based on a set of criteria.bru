@@ -1,0 +1,17 @@
+meta {
+  name: Search all resources of type Device based on a set of criteria
+  type: http
+  seq: 47
+}
+
+get {
+  url: {{baseUrl}}/Device
+  body: none
+  auth: none
+}
+
+params:query {
+  ~patient: 
+  ~status: 
+  ~type: 
+}

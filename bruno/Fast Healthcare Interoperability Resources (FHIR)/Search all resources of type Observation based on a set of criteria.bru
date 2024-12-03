@@ -1,0 +1,20 @@
+meta {
+  name: Search all resources of type Observation based on a set of criteria
+  type: http
+  seq: 164
+}
+
+get {
+  url: {{baseUrl}}/Observation
+  body: none
+  auth: none
+}
+
+params:query {
+  ~category: 
+  ~code: 
+  ~date: 
+  ~_lastUpdated: 
+  ~patient: 
+  ~status: 
+}

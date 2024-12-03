@@ -1,0 +1,16 @@
+meta {
+  name: Search all resources of type PractitionerRole based on a set of criteria
+  type: http
+  seq: 200
+}
+
+get {
+  url: {{baseUrl}}/PractitionerRole
+  body: none
+  auth: none
+}
+
+params:query {
+  ~practitioner: 
+  ~specialty: 
+}

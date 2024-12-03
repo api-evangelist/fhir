@@ -1,0 +1,18 @@
+meta {
+  name: Search all resources of type Procedure based on a set of criteria
+  type: http
+  seq: 209
+}
+
+get {
+  url: {{baseUrl}}/Procedure
+  body: none
+  auth: none
+}
+
+params:query {
+  ~code: 
+  ~date: 
+  ~patient: 
+  ~status: 
+}

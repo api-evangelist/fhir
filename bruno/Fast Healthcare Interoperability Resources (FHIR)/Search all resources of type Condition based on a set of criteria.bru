@@ -1,0 +1,24 @@
+meta {
+  name: Search all resources of type Condition based on a set of criteria
+  type: http
+  seq: 29
+}
+
+get {
+  url: {{baseUrl}}/Condition
+  body: none
+  auth: none
+}
+
+params:query {
+  ~abatement-date: 
+  ~asserted-date: 
+  ~category: 
+  ~clinical-status: 
+  ~code: 
+  ~encounter: 
+  ~onset-date: 
+  ~patient: 
+  ~recorded-date: 
+  ~_lastUpdated: 
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Search all resources of type DocumentReference based on a set of criteria
+  type: http
+  seq: 65
+}
+
+get {
+  url: {{baseUrl}}/DocumentReference
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_id: 
+  ~category: 
+  ~date: 
+  ~patient: 
+  ~period: 
+  ~status: 
+  ~type: 
+}

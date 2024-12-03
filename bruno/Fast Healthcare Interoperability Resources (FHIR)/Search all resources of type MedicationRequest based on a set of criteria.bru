@@ -1,0 +1,19 @@
+meta {
+  name: Search all resources of type MedicationRequest based on a set of criteria
+  type: http
+  seq: 155
+}
+
+get {
+  url: {{baseUrl}}/MedicationRequest
+  body: none
+  auth: none
+}
+
+params:query {
+  ~authoredon: 
+  ~encounter: 
+  ~intent: 
+  ~patient: 
+  ~status: 
+}

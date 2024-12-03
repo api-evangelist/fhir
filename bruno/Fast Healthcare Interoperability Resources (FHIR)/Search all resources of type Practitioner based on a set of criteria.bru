@@ -1,0 +1,17 @@
+meta {
+  name: Search all resources of type Practitioner based on a set of criteria
+  type: http
+  seq: 191
+}
+
+get {
+  url: {{baseUrl}}/Practitioner
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_id: 
+  ~identifier: 
+  ~name: 
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Search all resources of type DiagnosticReport based on a set of criteria
+  type: http
+  seq: 56
+}
+
+get {
+  url: {{baseUrl}}/DiagnosticReport
+  body: none
+  auth: none
+}
+
+params:query {
+  ~category: 
+  ~code: 
+  ~date: 
+  ~_lastUpdated: 
+  ~patient: 
+  ~status: 
+}

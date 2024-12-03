@@ -1,0 +1,17 @@
+meta {
+  name: Search all resources of type MedicationDispense based on a set of criteria
+  type: http
+  seq: 146
+}
+
+get {
+  url: {{baseUrl}}/MedicationDispense
+  body: none
+  auth: none
+}
+
+params:query {
+  ~patient: 
+  ~status: 
+  ~type: 
+}

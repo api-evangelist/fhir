@@ -1,0 +1,19 @@
+meta {
+  name: Search all resources of type QuestionnaireResponse based on a set of criteria
+  type: http
+  seq: 236
+}
+
+get {
+  url: {{baseUrl}}/QuestionnaireResponse
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_id: 
+  ~authored: 
+  ~patient: 
+  ~questionnaire: 
+  ~status: 
+}

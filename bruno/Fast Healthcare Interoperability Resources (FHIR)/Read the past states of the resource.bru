@@ -1,0 +1,17 @@
+meta {
+  name: Read the past states of the resource
+  type: http
+  seq: 271
+}
+
+get {
+  url: {{baseUrl}}/Specimen/_history
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_since: 
+  ~_at: 
+  ~_list: 
+}

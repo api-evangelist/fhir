@@ -1,0 +1,16 @@
+meta {
+  name: Search all resources of type Organization based on a set of criteria
+  type: http
+  seq: 173
+}
+
+get {
+  url: {{baseUrl}}/Organization
+  body: none
+  auth: none
+}
+
+params:query {
+  ~address: 
+  ~name: 
+}

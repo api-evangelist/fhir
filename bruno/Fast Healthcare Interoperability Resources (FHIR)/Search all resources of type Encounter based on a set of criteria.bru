@@ -1,0 +1,24 @@
+meta {
+  name: Search all resources of type Encounter based on a set of criteria
+  type: http
+  seq: 74
+}
+
+get {
+  url: {{baseUrl}}/Encounter
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_id: 
+  ~class: 
+  ~date: 
+  ~_lastUpdated: 
+  ~discharge-disposition: 
+  ~identifier: 
+  ~location: 
+  ~patient: 
+  ~status: 
+  ~type: 
+}

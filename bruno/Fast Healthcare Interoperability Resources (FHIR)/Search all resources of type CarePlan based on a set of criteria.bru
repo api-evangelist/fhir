@@ -1,0 +1,18 @@
+meta {
+  name: Search all resources of type CarePlan based on a set of criteria
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/CarePlan
+  body: none
+  auth: none
+}
+
+params:query {
+  ~category: 
+  ~date: 
+  ~patient: 
+  ~status: 
+}

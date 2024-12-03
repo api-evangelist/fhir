@@ -1,0 +1,17 @@
+meta {
+  name: Search all resources of type Immunization based on a set of criteria
+  type: http
+  seq: 110
+}
+
+get {
+  url: {{baseUrl}}/Immunization
+  body: none
+  auth: none
+}
+
+params:query {
+  ~date: 
+  ~patient: 
+  ~status: 
+}

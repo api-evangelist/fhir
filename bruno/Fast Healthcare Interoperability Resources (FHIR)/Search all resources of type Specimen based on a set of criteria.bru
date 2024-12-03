@@ -1,0 +1,16 @@
+meta {
+  name: Search all resources of type Specimen based on a set of criteria
+  type: http
+  seq: 263
+}
+
+get {
+  url: {{baseUrl}}/Specimen
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_id: 
+  ~patient: 
+}

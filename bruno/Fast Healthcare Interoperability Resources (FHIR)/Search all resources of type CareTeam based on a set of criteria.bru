@@ -1,0 +1,17 @@
+meta {
+  name: Search all resources of type CareTeam based on a set of criteria
+  type: http
+  seq: 20
+}
+
+get {
+  url: {{baseUrl}}/CareTeam
+  body: none
+  auth: none
+}
+
+params:query {
+  ~patient: 
+  ~role: 
+  ~status: 
+}

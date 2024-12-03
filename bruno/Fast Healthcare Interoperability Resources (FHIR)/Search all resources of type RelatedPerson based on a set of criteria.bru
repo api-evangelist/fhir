@@ -1,0 +1,17 @@
+meta {
+  name: Search all resources of type RelatedPerson based on a set of criteria
+  type: http
+  seq: 245
+}
+
+get {
+  url: {{baseUrl}}/RelatedPerson
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_id: 
+  ~name: 
+  ~patient: 
+}

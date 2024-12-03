@@ -1,0 +1,11 @@
+meta {
+  name: Delete the resource so that it no exists -no read- search etc-
+  type: http
+  seq: 268
+}
+
+delete {
+  url: {{baseUrl}}/Specimen/:rid
+  body: none
+  auth: none
+}

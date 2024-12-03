@@ -1,0 +1,20 @@
+meta {
+  name: Search all resources of type ServiceRequest based on a set of criteria
+  type: http
+  seq: 254
+}
+
+get {
+  url: {{baseUrl}}/ServiceRequest
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_id: 
+  ~authored: 
+  ~category: 
+  ~code: 
+  ~patient: 
+  ~status: 
+}

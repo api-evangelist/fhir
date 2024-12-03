@@ -1,0 +1,17 @@
+meta {
+  name: Read the past states of all resources
+  type: http
+  seq: 272
+}
+
+get {
+  url: {{baseUrl}}/_history
+  body: none
+  auth: none
+}
+
+params:query {
+  ~_since: 
+  ~_at: 
+  ~_list: 
+}

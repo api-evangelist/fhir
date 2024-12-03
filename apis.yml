@@ -15,6 +15,9 @@ apis:
         type: Documentation
       - url: properties/fhir-openapi-original.yml
         type: OpenAPI
+      - url: https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
+        type: PostmanCollection
+        
     description: >-
       This Section describes the expected capabilities of the US Core Server
       actor which is responsible for providing responses to the queries
@@ -32,10 +35,10 @@ tags:
   - Standards
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 common:
-  - url: https://example.com
-    type: Property
-created: '2024-07-11T00:00:00.000Z'
-modified: '2024-11-14'
+  - url: https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/overview
+    type: PostmanWorkspace
+created: '2024-07-11'
+modified: '2024-12-03'
 overlays:
   - url: overlays/apis-io-search.yml
     type: APIs.io Search

@@ -1,0 +1,19 @@
+meta {
+  name: Search all resources of type Location based on a set of criteria
+  type: http
+  seq: 119
+}
+
+get {
+  url: {{baseUrl}}/Location
+  body: none
+  auth: none
+}
+
+params:query {
+  ~address: 
+  ~address-city: 
+  ~address-postalcode: 
+  ~address-state: 
+  ~name: 
+}
