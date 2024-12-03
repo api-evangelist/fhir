@@ -4,7 +4,9 @@ apis:
   - aid: >-
       fast-healthcare-interoperability-resources-fhir:fast-healthcare-interoperability-resources-api
     name: US Core Server CapabilityStatement
-    tags: []
+    tags:
+      - Healthcare
+      - Standards
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://www.hl7.org/fhir/
