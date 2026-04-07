@@ -44,6 +44,8 @@ paths:
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/summary"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Metadata
   "/AllergyIntolerance":
     summary: Manager for resources of type AllergyIntolerance
     description: 'The Manager for resources of type AllergyIntolerance: provides services to manage the collection of all the AllergyIntolerance instances'
@@ -84,6 +86,8 @@ paths:
           description: "**Who the sensitivity is for**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - AllergyIntolerance
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createAllergyIntolerance
@@ -126,6 +130,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - AllergyIntolerance
   "/AllergyIntolerance/{rid}":
     summary: Read/Write/etc resource instance of type AllergyIntolerance
     description: Access to services to manage the state of a single resource of type AllergyIntolerance
@@ -162,6 +168,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - AllergyIntolerance
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateAllergyIntolerance
@@ -205,6 +213,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - AllergyIntolerance
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchAllergyIntolerance
@@ -254,6 +264,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - AllergyIntolerance
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteAllergyIntolerance
@@ -276,6 +288,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - AllergyIntolerance
   "/AllergyIntolerance/{rid}/_history":
     summary: Read past versions of resource instance of type AllergyIntolerance
     description: Access to previous versions of a single resource of type AllergyIntolerance
@@ -325,6 +339,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - AllergyIntolerance
   "/AllergyIntolerance/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type AllergyIntolerance
     description: Access a to specified previous version of a single resource of type AllergyIntolerance
@@ -362,6 +378,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - AllergyIntolerance
   "/AllergyIntolerance/_history":
     summary: Read past versions of resources of type AllergyIntolerance
     description: Access to previous versions of resourcez of type AllergyIntolerance
@@ -410,6 +428,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - AllergyIntolerance
   "/CarePlan":
     summary: Manager for resources of type CarePlan
     description: 'The Manager for resources of type CarePlan: provides services to manage the collection of all the CarePlan instances'
@@ -461,6 +481,8 @@ paths:
           description: "**draft | active | on-hold | revoked | completed | entered-in-error | unknown**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - CarePlan
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createCarePlan
@@ -503,6 +525,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CarePlan
   "/CarePlan/{rid}":
     summary: Read/Write/etc resource instance of type CarePlan
     description: Access to services to manage the state of a single resource of type CarePlan
@@ -539,6 +563,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CarePlan
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateCarePlan
@@ -582,6 +608,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CarePlan
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchCarePlan
@@ -631,6 +659,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CarePlan
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteCarePlan
@@ -653,6 +683,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - CarePlan
   "/CarePlan/{rid}/_history":
     summary: Read past versions of resource instance of type CarePlan
     description: Access to previous versions of a single resource of type CarePlan
@@ -702,6 +734,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - CarePlan
   "/CarePlan/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type CarePlan
     description: Access a to specified previous version of a single resource of type CarePlan
@@ -739,6 +773,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CarePlan
   "/CarePlan/_history":
     summary: Read past versions of resources of type CarePlan
     description: Access to previous versions of resourcez of type CarePlan
@@ -787,6 +823,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - CarePlan
   "/CareTeam":
     summary: Manager for resources of type CareTeam
     description: 'The Manager for resources of type CareTeam: provides services to manage the collection of all the CareTeam instances'
@@ -832,6 +870,8 @@ paths:
           description: "**proposed | active | suspended | inactive | entered-in-error**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - CareTeam
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createCareTeam
@@ -874,6 +914,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CareTeam
   "/CareTeam/{rid}":
     summary: Read/Write/etc resource instance of type CareTeam
     description: Access to services to manage the state of a single resource of type CareTeam
@@ -910,6 +952,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CareTeam
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateCareTeam
@@ -953,6 +997,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CareTeam
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchCareTeam
@@ -1002,6 +1048,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CareTeam
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteCareTeam
@@ -1024,6 +1072,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - CareTeam
   "/CareTeam/{rid}/_history":
     summary: Read past versions of resource instance of type CareTeam
     description: Access to previous versions of a single resource of type CareTeam
@@ -1073,6 +1123,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - CareTeam
   "/CareTeam/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type CareTeam
     description: Access a to specified previous version of a single resource of type CareTeam
@@ -1110,6 +1162,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - CareTeam
   "/CareTeam/_history":
     summary: Read past versions of resources of type CareTeam
     description: Access to previous versions of resourcez of type CareTeam
@@ -1158,6 +1212,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - CareTeam
   "/Condition":
     summary: Manager for resources of type Condition
     description: 'The Manager for resources of type Condition: provides services to manage the collection of all the Condition instances'
@@ -1243,6 +1299,8 @@ paths:
           schema:
             type: string
             pattern: "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?"
+      tags:
+        - Condition
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createCondition
@@ -1285,6 +1343,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Condition
   "/Condition/{rid}":
     summary: Read/Write/etc resource instance of type Condition
     description: Access to services to manage the state of a single resource of type Condition
@@ -1321,6 +1381,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Condition
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateCondition
@@ -1364,6 +1426,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Condition
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchCondition
@@ -1413,6 +1477,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Condition
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteCondition
@@ -1435,6 +1501,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Condition
   "/Condition/{rid}/_history":
     summary: Read past versions of resource instance of type Condition
     description: Access to previous versions of a single resource of type Condition
@@ -1484,6 +1552,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Condition
   "/Condition/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Condition
     description: Access a to specified previous version of a single resource of type Condition
@@ -1521,6 +1591,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Condition
   "/Condition/_history":
     summary: Read past versions of resources of type Condition
     description: Access to previous versions of resourcez of type Condition
@@ -1569,6 +1641,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Condition
   "/Coverage":
     summary: Manager for resources of type Coverage
     description: 'The Manager for resources of type Coverage: provides services to manage the collection of all the Coverage instances'
@@ -1604,6 +1678,8 @@ paths:
           description: "**Retrieve coverages for a patient**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - Coverage
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createCoverage
@@ -1646,6 +1722,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Coverage
   "/Coverage/{rid}":
     summary: Read/Write/etc resource instance of type Coverage
     description: Access to services to manage the state of a single resource of type Coverage
@@ -1682,6 +1760,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Coverage
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateCoverage
@@ -1725,6 +1805,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Coverage
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchCoverage
@@ -1774,6 +1856,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Coverage
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteCoverage
@@ -1796,6 +1880,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Coverage
   "/Coverage/{rid}/_history":
     summary: Read past versions of resource instance of type Coverage
     description: Access to previous versions of a single resource of type Coverage
@@ -1845,6 +1931,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Coverage
   "/Coverage/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Coverage
     description: Access a to specified previous version of a single resource of type Coverage
@@ -1882,6 +1970,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Coverage
   "/Coverage/_history":
     summary: Read past versions of resources of type Coverage
     description: Access to previous versions of resourcez of type Coverage
@@ -1930,6 +2020,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Coverage
   "/Device":
     summary: Manager for resources of type Device
     description: 'The Manager for resources of type Device: provides services to manage the collection of all the Device instances'
@@ -1975,6 +2067,8 @@ paths:
           description: "**The type of the device**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - Device
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createDevice
@@ -2017,6 +2111,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Device
   "/Device/{rid}":
     summary: Read/Write/etc resource instance of type Device
     description: Access to services to manage the state of a single resource of type Device
@@ -2053,6 +2149,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Device
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateDevice
@@ -2096,6 +2194,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Device
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchDevice
@@ -2145,6 +2245,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Device
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteDevice
@@ -2167,6 +2269,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Device
   "/Device/{rid}/_history":
     summary: Read past versions of resource instance of type Device
     description: Access to previous versions of a single resource of type Device
@@ -2216,6 +2320,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Device
   "/Device/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Device
     description: Access a to specified previous version of a single resource of type Device
@@ -2253,6 +2359,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Device
   "/Device/_history":
     summary: Read past versions of resources of type Device
     description: Access to previous versions of resourcez of type Device
@@ -2301,6 +2409,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Device
   "/DiagnosticReport":
     summary: Manager for resources of type DiagnosticReport
     description: 'The Manager for resources of type DiagnosticReport: provides services to manage the collection of all the DiagnosticReport instances'
@@ -2363,6 +2473,8 @@ paths:
           description: "**The status of the report**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - DiagnosticReport
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createDiagnosticReport
@@ -2405,6 +2517,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DiagnosticReport
   "/DiagnosticReport/{rid}":
     summary: Read/Write/etc resource instance of type DiagnosticReport
     description: Access to services to manage the state of a single resource of type DiagnosticReport
@@ -2441,6 +2555,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DiagnosticReport
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateDiagnosticReport
@@ -2484,6 +2600,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DiagnosticReport
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchDiagnosticReport
@@ -2533,6 +2651,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DiagnosticReport
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteDiagnosticReport
@@ -2555,6 +2675,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - DiagnosticReport
   "/DiagnosticReport/{rid}/_history":
     summary: Read past versions of resource instance of type DiagnosticReport
     description: Access to previous versions of a single resource of type DiagnosticReport
@@ -2604,6 +2726,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - DiagnosticReport
   "/DiagnosticReport/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type DiagnosticReport
     description: Access a to specified previous version of a single resource of type DiagnosticReport
@@ -2641,6 +2765,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DiagnosticReport
   "/DiagnosticReport/_history":
     summary: Read past versions of resources of type DiagnosticReport
     description: Access to previous versions of resourcez of type DiagnosticReport
@@ -2689,6 +2815,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - DiagnosticReport
   "/DocumentReference":
     summary: Manager for resources of type DocumentReference
     description: 'The Manager for resources of type DocumentReference: provides services to manage the collection of all the DocumentReference instances'
@@ -2756,6 +2884,8 @@ paths:
           description: "**Kind of document (LOINC if possible)**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - DocumentReference
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createDocumentReference
@@ -2798,6 +2928,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DocumentReference
   "/DocumentReference/{rid}":
     summary: Read/Write/etc resource instance of type DocumentReference
     description: Access to services to manage the state of a single resource of type DocumentReference
@@ -2834,6 +2966,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DocumentReference
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateDocumentReference
@@ -2877,6 +3011,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DocumentReference
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchDocumentReference
@@ -2926,6 +3062,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DocumentReference
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteDocumentReference
@@ -2948,6 +3086,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - DocumentReference
   "/DocumentReference/{rid}/_history":
     summary: Read past versions of resource instance of type DocumentReference
     description: Access to previous versions of a single resource of type DocumentReference
@@ -2997,6 +3137,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - DocumentReference
   "/DocumentReference/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type DocumentReference
     description: Access a to specified previous version of a single resource of type DocumentReference
@@ -3034,6 +3176,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - DocumentReference
   "/DocumentReference/_history":
     summary: Read past versions of resources of type DocumentReference
     description: Access to previous versions of resourcez of type DocumentReference
@@ -3082,6 +3226,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - DocumentReference
   "/Encounter":
     summary: Manager for resources of type Encounter
     description: 'The Manager for resources of type Encounter: provides services to manage the collection of all the Encounter instances'
@@ -3164,6 +3310,8 @@ paths:
           description: "**Specific type of encounter**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - Encounter
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createEncounter
@@ -3206,6 +3354,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Encounter
   "/Encounter/{rid}":
     summary: Read/Write/etc resource instance of type Encounter
     description: Access to services to manage the state of a single resource of type Encounter
@@ -3242,6 +3392,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Encounter
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateEncounter
@@ -3285,6 +3437,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Encounter
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchEncounter
@@ -3334,6 +3488,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Encounter
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteEncounter
@@ -3356,6 +3512,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Encounter
   "/Encounter/{rid}/_history":
     summary: Read past versions of resource instance of type Encounter
     description: Access to previous versions of a single resource of type Encounter
@@ -3405,6 +3563,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Encounter
   "/Encounter/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Encounter
     description: Access a to specified previous version of a single resource of type Encounter
@@ -3442,6 +3602,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Encounter
   "/Encounter/_history":
     summary: Read past versions of resources of type Encounter
     description: Access to previous versions of resourcez of type Encounter
@@ -3490,6 +3652,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Encounter
   "/Endpoint":
     summary: Manager for resources of type Endpoint
     description: 'The Manager for resources of type Endpoint: provides services to manage the collection of all the Endpoint instances'
@@ -3520,6 +3684,8 @@ paths:
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/summary"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Endpoint
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createEndpoint
@@ -3562,6 +3728,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Endpoint
   "/Endpoint/{rid}":
     summary: Read/Write/etc resource instance of type Endpoint
     description: Access to services to manage the state of a single resource of type Endpoint
@@ -3598,6 +3766,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Endpoint
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateEndpoint
@@ -3641,6 +3811,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Endpoint
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchEndpoint
@@ -3690,6 +3862,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Endpoint
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteEndpoint
@@ -3712,6 +3886,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Endpoint
   "/Endpoint/{rid}/_history":
     summary: Read past versions of resource instance of type Endpoint
     description: Access to previous versions of a single resource of type Endpoint
@@ -3761,6 +3937,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Endpoint
   "/Endpoint/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Endpoint
     description: Access a to specified previous version of a single resource of type Endpoint
@@ -3798,6 +3976,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Endpoint
   "/Endpoint/_history":
     summary: Read past versions of resources of type Endpoint
     description: Access to previous versions of resourcez of type Endpoint
@@ -3846,6 +4026,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Endpoint
   "/Goal":
     summary: Manager for resources of type Goal
     description: 'The Manager for resources of type Goal: provides services to manage the collection of all the Goal instances'
@@ -3905,6 +4087,8 @@ paths:
           schema:
             type: string
             pattern: "([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?"
+      tags:
+        - Goal
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createGoal
@@ -3947,6 +4131,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Goal
   "/Goal/{rid}":
     summary: Read/Write/etc resource instance of type Goal
     description: Access to services to manage the state of a single resource of type Goal
@@ -3983,6 +4169,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Goal
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateGoal
@@ -4026,6 +4214,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Goal
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchGoal
@@ -4075,6 +4265,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Goal
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteGoal
@@ -4097,6 +4289,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Goal
   "/Goal/{rid}/_history":
     summary: Read past versions of resource instance of type Goal
     description: Access to previous versions of a single resource of type Goal
@@ -4146,6 +4340,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Goal
   "/Goal/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Goal
     description: Access a to specified previous version of a single resource of type Goal
@@ -4183,6 +4379,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Goal
   "/Goal/_history":
     summary: Read past versions of resources of type Goal
     description: Access to previous versions of resourcez of type Goal
@@ -4231,6 +4429,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Goal
   "/HealthcareService":
     summary: Manager for resources of type HealthcareService
     description: 'The Manager for resources of type HealthcareService: provides services to manage the collection of all the HealthcareService instances'
@@ -4261,6 +4461,8 @@ paths:
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/summary"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - HealthcareService
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createHealthcareService
@@ -4303,6 +4505,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - HealthcareService
   "/HealthcareService/{rid}":
     summary: Read/Write/etc resource instance of type HealthcareService
     description: Access to services to manage the state of a single resource of type HealthcareService
@@ -4339,6 +4543,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - HealthcareService
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateHealthcareService
@@ -4382,6 +4588,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - HealthcareService
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchHealthcareService
@@ -4431,6 +4639,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - HealthcareService
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteHealthcareService
@@ -4453,6 +4663,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - HealthcareService
   "/HealthcareService/{rid}/_history":
     summary: Read past versions of resource instance of type HealthcareService
     description: Access to previous versions of a single resource of type HealthcareService
@@ -4502,6 +4714,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - HealthcareService
   "/HealthcareService/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type HealthcareService
     description: Access a to specified previous version of a single resource of type HealthcareService
@@ -4539,6 +4753,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - HealthcareService
   "/HealthcareService/_history":
     summary: Read past versions of resources of type HealthcareService
     description: Access to previous versions of resourcez of type HealthcareService
@@ -4587,6 +4803,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - HealthcareService
   "/Immunization":
     summary: Manager for resources of type Immunization
     description: 'The Manager for resources of type Immunization: provides services to manage the collection of all the Immunization instances'
@@ -4633,6 +4851,8 @@ paths:
           description: "**Immunization event status**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - Immunization
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createImmunization
@@ -4675,6 +4895,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Immunization
   "/Immunization/{rid}":
     summary: Read/Write/etc resource instance of type Immunization
     description: Access to services to manage the state of a single resource of type Immunization
@@ -4711,6 +4933,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Immunization
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateImmunization
@@ -4754,6 +4978,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Immunization
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchImmunization
@@ -4803,6 +5029,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Immunization
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteImmunization
@@ -4825,6 +5053,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Immunization
   "/Immunization/{rid}/_history":
     summary: Read past versions of resource instance of type Immunization
     description: Access to previous versions of a single resource of type Immunization
@@ -4874,6 +5104,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Immunization
   "/Immunization/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Immunization
     description: Access a to specified previous version of a single resource of type Immunization
@@ -4911,6 +5143,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Immunization
   "/Immunization/_history":
     summary: Read past versions of resources of type Immunization
     description: Access to previous versions of resourcez of type Immunization
@@ -4959,6 +5193,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Immunization
   "/Location":
     summary: Manager for resources of type Location
     description: 'The Manager for resources of type Location: provides services to manage the collection of all the Location instances'
@@ -5014,6 +5250,8 @@ paths:
           schema:
             type: string
           description: "**A portion of the location's name or alias**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+      tags:
+        - Location
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createLocation
@@ -5056,6 +5294,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Location
   "/Location/{rid}":
     summary: Read/Write/etc resource instance of type Location
     description: Access to services to manage the state of a single resource of type Location
@@ -5092,6 +5332,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Location
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateLocation
@@ -5135,6 +5377,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Location
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchLocation
@@ -5184,6 +5428,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Location
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteLocation
@@ -5206,6 +5452,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Location
   "/Location/{rid}/_history":
     summary: Read past versions of resource instance of type Location
     description: Access to previous versions of a single resource of type Location
@@ -5255,6 +5503,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Location
   "/Location/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Location
     description: Access a to specified previous version of a single resource of type Location
@@ -5292,6 +5542,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Location
   "/Location/_history":
     summary: Read past versions of resources of type Location
     description: Access to previous versions of resourcez of type Location
@@ -5340,6 +5592,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Location
   "/Media":
     summary: Manager for resources of type Media
     description: 'The Manager for resources of type Media: provides services to manage the collection of all the Media instances'
@@ -5370,6 +5624,8 @@ paths:
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/summary"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Media
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createMedia
@@ -5412,6 +5668,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Media
   "/Media/{rid}":
     summary: Read/Write/etc resource instance of type Media
     description: Access to services to manage the state of a single resource of type Media
@@ -5448,6 +5706,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Media
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateMedia
@@ -5491,6 +5751,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Media
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchMedia
@@ -5540,6 +5802,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Media
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteMedia
@@ -5562,6 +5826,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Media
   "/Media/{rid}/_history":
     summary: Read past versions of resource instance of type Media
     description: Access to previous versions of a single resource of type Media
@@ -5611,6 +5877,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Media
   "/Media/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Media
     description: Access a to specified previous version of a single resource of type Media
@@ -5648,6 +5916,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Media
   "/Media/_history":
     summary: Read past versions of resources of type Media
     description: Access to previous versions of resourcez of type Media
@@ -5696,6 +5966,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Media
   "/Medication":
     summary: Manager for resources of type Medication
     description: 'The Manager for resources of type Medication: provides services to manage the collection of all the Medication instances'
@@ -5726,6 +5998,8 @@ paths:
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/summary"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Medication
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createMedication
@@ -5768,6 +6042,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Medication
   "/Medication/{rid}":
     summary: Read/Write/etc resource instance of type Medication
     description: Access to services to manage the state of a single resource of type Medication
@@ -5804,6 +6080,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Medication
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateMedication
@@ -5847,6 +6125,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Medication
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchMedication
@@ -5896,6 +6176,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Medication
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteMedication
@@ -5918,6 +6200,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Medication
   "/Medication/{rid}/_history":
     summary: Read past versions of resource instance of type Medication
     description: Access to previous versions of a single resource of type Medication
@@ -5967,6 +6251,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Medication
   "/Medication/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Medication
     description: Access a to specified previous version of a single resource of type Medication
@@ -6004,6 +6290,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Medication
   "/Medication/_history":
     summary: Read past versions of resources of type Medication
     description: Access to previous versions of resourcez of type Medication
@@ -6052,6 +6340,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Medication
   "/MedicationDispense":
     summary: Manager for resources of type MedicationDispense
     description: 'The Manager for resources of type MedicationDispense: provides services to manage the collection of all the MedicationDispense instances'
@@ -6097,6 +6387,8 @@ paths:
           description: "**Returns dispenses of a specific type**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - MedicationDispense
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createMedicationDispense
@@ -6139,6 +6431,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationDispense
   "/MedicationDispense/{rid}":
     summary: Read/Write/etc resource instance of type MedicationDispense
     description: Access to services to manage the state of a single resource of type MedicationDispense
@@ -6175,6 +6469,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationDispense
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateMedicationDispense
@@ -6218,6 +6514,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationDispense
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchMedicationDispense
@@ -6267,6 +6565,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationDispense
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteMedicationDispense
@@ -6289,6 +6589,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - MedicationDispense
   "/MedicationDispense/{rid}/_history":
     summary: Read past versions of resource instance of type MedicationDispense
     description: Access to previous versions of a single resource of type MedicationDispense
@@ -6338,6 +6640,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - MedicationDispense
   "/MedicationDispense/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type MedicationDispense
     description: Access a to specified previous version of a single resource of type MedicationDispense
@@ -6375,6 +6679,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationDispense
   "/MedicationDispense/_history":
     summary: Read past versions of resources of type MedicationDispense
     description: Access to previous versions of resourcez of type MedicationDispense
@@ -6423,6 +6729,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - MedicationDispense
   "/MedicationRequest":
     summary: Manager for resources of type MedicationRequest
     description: 'The Manager for resources of type MedicationRequest: provides services to manage the collection of all the MedicationRequest instances'
@@ -6479,6 +6787,8 @@ paths:
           description: "**Status of the prescription**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - MedicationRequest
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createMedicationRequest
@@ -6521,6 +6831,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationRequest
   "/MedicationRequest/{rid}":
     summary: Read/Write/etc resource instance of type MedicationRequest
     description: Access to services to manage the state of a single resource of type MedicationRequest
@@ -6557,6 +6869,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationRequest
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateMedicationRequest
@@ -6600,6 +6914,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationRequest
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchMedicationRequest
@@ -6649,6 +6965,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationRequest
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteMedicationRequest
@@ -6671,6 +6989,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - MedicationRequest
   "/MedicationRequest/{rid}/_history":
     summary: Read past versions of resource instance of type MedicationRequest
     description: Access to previous versions of a single resource of type MedicationRequest
@@ -6720,6 +7040,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - MedicationRequest
   "/MedicationRequest/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type MedicationRequest
     description: Access a to specified previous version of a single resource of type MedicationRequest
@@ -6757,6 +7079,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - MedicationRequest
   "/MedicationRequest/_history":
     summary: Read past versions of resources of type MedicationRequest
     description: Access to previous versions of resourcez of type MedicationRequest
@@ -6805,6 +7129,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - MedicationRequest
   "/Observation":
     summary: Manager for resources of type Observation
     description: 'The Manager for resources of type Observation: provides services to manage the collection of all the Observation instances'
@@ -6867,6 +7193,8 @@ paths:
           description: "**The status of the observation**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - Observation
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createObservation
@@ -6909,6 +7237,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Observation
   "/Observation/{rid}":
     summary: Read/Write/etc resource instance of type Observation
     description: Access to services to manage the state of a single resource of type Observation
@@ -6945,6 +7275,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Observation
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateObservation
@@ -6988,6 +7320,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Observation
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchObservation
@@ -7037,6 +7371,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Observation
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteObservation
@@ -7059,6 +7395,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Observation
   "/Observation/{rid}/_history":
     summary: Read past versions of resource instance of type Observation
     description: Access to previous versions of a single resource of type Observation
@@ -7108,6 +7446,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Observation
   "/Observation/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Observation
     description: Access a to specified previous version of a single resource of type Observation
@@ -7145,6 +7485,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Observation
   "/Observation/_history":
     summary: Read past versions of resources of type Observation
     description: Access to previous versions of resourcez of type Observation
@@ -7193,6 +7535,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Observation
   "/Organization":
     summary: Manager for resources of type Organization
     description: 'The Manager for resources of type Organization: provides services to manage the collection of all the Organization instances'
@@ -7233,6 +7577,8 @@ paths:
           schema:
             type: string
           description: "**A portion of the organization's name or alias**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+      tags:
+        - Organization
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createOrganization
@@ -7275,6 +7621,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Organization
   "/Organization/{rid}":
     summary: Read/Write/etc resource instance of type Organization
     description: Access to services to manage the state of a single resource of type Organization
@@ -7311,6 +7659,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Organization
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateOrganization
@@ -7354,6 +7704,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Organization
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchOrganization
@@ -7403,6 +7755,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Organization
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteOrganization
@@ -7425,6 +7779,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Organization
   "/Organization/{rid}/_history":
     summary: Read past versions of resource instance of type Organization
     description: Access to previous versions of a single resource of type Organization
@@ -7474,6 +7830,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Organization
   "/Organization/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Organization
     description: Access a to specified previous version of a single resource of type Organization
@@ -7511,6 +7869,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Organization
   "/Organization/_history":
     summary: Read past versions of resources of type Organization
     description: Access to previous versions of resourcez of type Organization
@@ -7559,6 +7919,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Organization
   "/Patient":
     summary: Manager for resources of type Patient
     description: 'The Manager for resources of type Patient: provides services to manage the collection of all the Patient instances'
@@ -7631,6 +7993,8 @@ paths:
           schema:
             type: string
           description: "**A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+      tags:
+        - Patient
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createPatient
@@ -7673,6 +8037,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Patient
   "/Patient/{rid}":
     summary: Read/Write/etc resource instance of type Patient
     description: Access to services to manage the state of a single resource of type Patient
@@ -7709,6 +8075,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Patient
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updatePatient
@@ -7752,6 +8120,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Patient
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchPatient
@@ -7801,6 +8171,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Patient
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deletePatient
@@ -7823,6 +8195,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Patient
   "/Patient/{rid}/_history":
     summary: Read past versions of resource instance of type Patient
     description: Access to previous versions of a single resource of type Patient
@@ -7872,6 +8246,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Patient
   "/Patient/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Patient
     description: Access a to specified previous version of a single resource of type Patient
@@ -7909,6 +8285,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Patient
   "/Patient/_history":
     summary: Read past versions of resources of type Patient
     description: Access to previous versions of resourcez of type Patient
@@ -7957,6 +8335,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Patient
   "/Practitioner":
     summary: Manager for resources of type Practitioner
     description: 'The Manager for resources of type Practitioner: provides services to manage the collection of all the Practitioner instances'
@@ -8002,6 +8382,8 @@ paths:
           schema:
             type: string
           description: "**A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+      tags:
+        - Practitioner
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createPractitioner
@@ -8044,6 +8426,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Practitioner
   "/Practitioner/{rid}":
     summary: Read/Write/etc resource instance of type Practitioner
     description: Access to services to manage the state of a single resource of type Practitioner
@@ -8080,6 +8464,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Practitioner
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updatePractitioner
@@ -8123,6 +8509,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Practitioner
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchPractitioner
@@ -8172,6 +8560,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Practitioner
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deletePractitioner
@@ -8194,6 +8584,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Practitioner
   "/Practitioner/{rid}/_history":
     summary: Read past versions of resource instance of type Practitioner
     description: Access to previous versions of a single resource of type Practitioner
@@ -8243,6 +8635,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Practitioner
   "/Practitioner/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Practitioner
     description: Access a to specified previous version of a single resource of type Practitioner
@@ -8280,6 +8674,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Practitioner
   "/Practitioner/_history":
     summary: Read past versions of resources of type Practitioner
     description: Access to previous versions of resourcez of type Practitioner
@@ -8328,6 +8724,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Practitioner
   "/PractitionerRole":
     summary: Manager for resources of type PractitionerRole
     description: 'The Manager for resources of type PractitionerRole: provides services to manage the collection of all the PractitionerRole instances'
@@ -8368,6 +8766,8 @@ paths:
           description: "**The practitioner has this specialty at an organization**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - PractitionerRole
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createPractitionerRole
@@ -8410,6 +8810,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - PractitionerRole
   "/PractitionerRole/{rid}":
     summary: Read/Write/etc resource instance of type PractitionerRole
     description: Access to services to manage the state of a single resource of type PractitionerRole
@@ -8446,6 +8848,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - PractitionerRole
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updatePractitionerRole
@@ -8489,6 +8893,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - PractitionerRole
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchPractitionerRole
@@ -8538,6 +8944,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - PractitionerRole
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deletePractitionerRole
@@ -8560,6 +8968,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - PractitionerRole
   "/PractitionerRole/{rid}/_history":
     summary: Read past versions of resource instance of type PractitionerRole
     description: Access to previous versions of a single resource of type PractitionerRole
@@ -8609,6 +9019,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - PractitionerRole
   "/PractitionerRole/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type PractitionerRole
     description: Access a to specified previous version of a single resource of type PractitionerRole
@@ -8646,6 +9058,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - PractitionerRole
   "/PractitionerRole/_history":
     summary: Read past versions of resources of type PractitionerRole
     description: Access to previous versions of resourcez of type PractitionerRole
@@ -8694,6 +9108,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - PractitionerRole
   "/Procedure":
     summary: Manager for resources of type Procedure
     description: 'The Manager for resources of type Procedure: provides services to manage the collection of all the Procedure instances'
@@ -8745,6 +9161,8 @@ paths:
           description: "**preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - Procedure
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createProcedure
@@ -8787,6 +9205,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Procedure
   "/Procedure/{rid}":
     summary: Read/Write/etc resource instance of type Procedure
     description: Access to services to manage the state of a single resource of type Procedure
@@ -8823,6 +9243,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Procedure
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateProcedure
@@ -8866,6 +9288,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Procedure
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchProcedure
@@ -8915,6 +9339,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Procedure
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteProcedure
@@ -8937,6 +9363,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Procedure
   "/Procedure/{rid}/_history":
     summary: Read past versions of resource instance of type Procedure
     description: Access to previous versions of a single resource of type Procedure
@@ -8986,6 +9414,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Procedure
   "/Procedure/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Procedure
     description: Access a to specified previous version of a single resource of type Procedure
@@ -9023,6 +9453,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Procedure
   "/Procedure/_history":
     summary: Read past versions of resources of type Procedure
     description: Access to previous versions of resourcez of type Procedure
@@ -9071,6 +9503,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Procedure
   "/Provenance":
     summary: Manager for resources of type Provenance
     description: 'The Manager for resources of type Provenance: provides services to manage the collection of all the Provenance instances'
@@ -9101,6 +9535,8 @@ paths:
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/summary"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Provenance
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createProvenance
@@ -9143,6 +9579,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Provenance
   "/Provenance/{rid}":
     summary: Read/Write/etc resource instance of type Provenance
     description: Access to services to manage the state of a single resource of type Provenance
@@ -9179,6 +9617,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Provenance
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateProvenance
@@ -9222,6 +9662,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Provenance
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchProvenance
@@ -9271,6 +9713,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Provenance
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteProvenance
@@ -9293,6 +9737,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Provenance
   "/Provenance/{rid}/_history":
     summary: Read past versions of resource instance of type Provenance
     description: Access to previous versions of a single resource of type Provenance
@@ -9342,6 +9788,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Provenance
   "/Provenance/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Provenance
     description: Access a to specified previous version of a single resource of type Provenance
@@ -9379,6 +9827,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Provenance
   "/Provenance/_history":
     summary: Read past versions of resources of type Provenance
     description: Access to previous versions of resourcez of type Provenance
@@ -9427,6 +9877,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Provenance
   "/Questionnaire":
     summary: Manager for resources of type Questionnaire
     description: 'The Manager for resources of type Questionnaire: provides services to manage the collection of all the Questionnaire instances'
@@ -9457,6 +9909,8 @@ paths:
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/summary"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Questionnaire
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createQuestionnaire
@@ -9499,6 +9953,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Questionnaire
   "/Questionnaire/{rid}":
     summary: Read/Write/etc resource instance of type Questionnaire
     description: Access to services to manage the state of a single resource of type Questionnaire
@@ -9535,6 +9991,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Questionnaire
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateQuestionnaire
@@ -9578,6 +10036,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Questionnaire
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchQuestionnaire
@@ -9627,6 +10087,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Questionnaire
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteQuestionnaire
@@ -9649,6 +10111,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Questionnaire
   "/Questionnaire/{rid}/_history":
     summary: Read past versions of resource instance of type Questionnaire
     description: Access to previous versions of a single resource of type Questionnaire
@@ -9698,6 +10162,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Questionnaire
   "/Questionnaire/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Questionnaire
     description: Access a to specified previous version of a single resource of type Questionnaire
@@ -9735,6 +10201,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Questionnaire
   "/Questionnaire/_history":
     summary: Read past versions of resources of type Questionnaire
     description: Access to previous versions of resourcez of type Questionnaire
@@ -9783,6 +10251,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Questionnaire
   "/QuestionnaireResponse":
     summary: Manager for resources of type QuestionnaireResponse
     description: 'The Manager for resources of type QuestionnaireResponse: provides services to manage the collection of all the QuestionnaireResponse instances'
@@ -9839,6 +10309,8 @@ paths:
           description: "**The status of the questionnaire response**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - QuestionnaireResponse
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createQuestionnaireResponse
@@ -9881,6 +10353,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - QuestionnaireResponse
   "/QuestionnaireResponse/{rid}":
     summary: Read/Write/etc resource instance of type QuestionnaireResponse
     description: Access to services to manage the state of a single resource of type QuestionnaireResponse
@@ -9917,6 +10391,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - QuestionnaireResponse
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateQuestionnaireResponse
@@ -9960,6 +10436,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - QuestionnaireResponse
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchQuestionnaireResponse
@@ -10009,6 +10487,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - QuestionnaireResponse
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteQuestionnaireResponse
@@ -10031,6 +10511,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - QuestionnaireResponse
   "/QuestionnaireResponse/{rid}/_history":
     summary: Read past versions of resource instance of type QuestionnaireResponse
     description: Access to previous versions of a single resource of type QuestionnaireResponse
@@ -10080,6 +10562,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - QuestionnaireResponse
   "/QuestionnaireResponse/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type QuestionnaireResponse
     description: Access a to specified previous version of a single resource of type QuestionnaireResponse
@@ -10117,6 +10601,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - QuestionnaireResponse
   "/QuestionnaireResponse/_history":
     summary: Read past versions of resources of type QuestionnaireResponse
     description: Access to previous versions of resourcez of type QuestionnaireResponse
@@ -10165,6 +10651,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - QuestionnaireResponse
   "/RelatedPerson":
     summary: Manager for resources of type RelatedPerson
     description: 'The Manager for resources of type RelatedPerson: provides services to manage the collection of all the RelatedPerson instances'
@@ -10210,6 +10698,8 @@ paths:
           description: "**The patient this related person is related to**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - RelatedPerson
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createRelatedPerson
@@ -10252,6 +10742,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - RelatedPerson
   "/RelatedPerson/{rid}":
     summary: Read/Write/etc resource instance of type RelatedPerson
     description: Access to services to manage the state of a single resource of type RelatedPerson
@@ -10288,6 +10780,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - RelatedPerson
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateRelatedPerson
@@ -10331,6 +10825,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - RelatedPerson
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchRelatedPerson
@@ -10380,6 +10876,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - RelatedPerson
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteRelatedPerson
@@ -10402,6 +10900,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - RelatedPerson
   "/RelatedPerson/{rid}/_history":
     summary: Read past versions of resource instance of type RelatedPerson
     description: Access to previous versions of a single resource of type RelatedPerson
@@ -10451,6 +10951,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - RelatedPerson
   "/RelatedPerson/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type RelatedPerson
     description: Access a to specified previous version of a single resource of type RelatedPerson
@@ -10488,6 +10990,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - RelatedPerson
   "/RelatedPerson/_history":
     summary: Read past versions of resources of type RelatedPerson
     description: Access to previous versions of resourcez of type RelatedPerson
@@ -10536,6 +11040,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - RelatedPerson
   "/ServiceRequest":
     summary: Manager for resources of type ServiceRequest
     description: 'The Manager for resources of type ServiceRequest: provides services to manage the collection of all the ServiceRequest instances'
@@ -10597,6 +11103,8 @@ paths:
           description: "**draft | active | on-hold | revoked | completed | entered-in-error | unknown**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
           schema:
             type: string
+      tags:
+        - ServiceRequest
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createServiceRequest
@@ -10639,6 +11147,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - ServiceRequest
   "/ServiceRequest/{rid}":
     summary: Read/Write/etc resource instance of type ServiceRequest
     description: Access to services to manage the state of a single resource of type ServiceRequest
@@ -10675,6 +11185,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - ServiceRequest
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateServiceRequest
@@ -10718,6 +11230,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - ServiceRequest
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchServiceRequest
@@ -10767,6 +11281,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - ServiceRequest
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteServiceRequest
@@ -10789,6 +11305,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - ServiceRequest
   "/ServiceRequest/{rid}/_history":
     summary: Read past versions of resource instance of type ServiceRequest
     description: Access to previous versions of a single resource of type ServiceRequest
@@ -10838,6 +11356,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - ServiceRequest
   "/ServiceRequest/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type ServiceRequest
     description: Access a to specified previous version of a single resource of type ServiceRequest
@@ -10875,6 +11395,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - ServiceRequest
   "/ServiceRequest/_history":
     summary: Read past versions of resources of type ServiceRequest
     description: Access to previous versions of resourcez of type ServiceRequest
@@ -10923,6 +11445,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - ServiceRequest
   "/Specimen":
     summary: Manager for resources of type Specimen
     description: 'The Manager for resources of type Specimen: provides services to manage the collection of all the Specimen instances'
@@ -10963,6 +11487,8 @@ paths:
           schema:
             type: string
           description: "**The patient the specimen comes from**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+      tags:
+        - Specimen
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
       operationId: createSpecimen
@@ -11005,6 +11531,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Specimen
   "/Specimen/{rid}":
     summary: Read/Write/etc resource instance of type Specimen
     description: Access to services to manage the state of a single resource of type Specimen
@@ -11041,6 +11569,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Specimen
     put:
       summary: Fast Healthcare Interoperability Resources Update the current state of the resource
       operationId: updateSpecimen
@@ -11084,6 +11614,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Specimen
     patch:
       summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
       operationId: patchSpecimen
@@ -11133,6 +11665,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Specimen
     delete:
       summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
       operationId: deleteSpecimen
@@ -11155,6 +11689,8 @@ paths:
                 "$ref": https://hl7.org/fhir/R4/OperationOutcome.xsd
       parameters:
         - "$ref": "#/components/parameters/rid"
+      tags:
+        - Specimen
   "/Specimen/{rid}/_history":
     summary: Read past versions of resource instance of type Specimen
     description: Access to previous versions of a single resource of type Specimen
@@ -11204,6 +11740,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Specimen
   "/Specimen/{rid}/_history/{hid}":
     summary: Read a past version of resource instance of type Specimen
     description: Access a to specified previous version of a single resource of type Specimen
@@ -11241,6 +11779,8 @@ paths:
         - "$ref": "#/components/parameters/format"
         - "$ref": "#/components/parameters/pretty"
         - "$ref": "#/components/parameters/elements"
+      tags:
+        - Specimen
   "/Specimen/_history":
     summary: Read past versions of resources of type Specimen
     description: Access to previous versions of resourcez of type Specimen
@@ -11289,6 +11829,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - Specimen
   "/_history":
     summary: Read a past version of resource instance of all types
     description: Access a previous versions of all types
@@ -11337,6 +11879,8 @@ paths:
           description: Only include resource versions that are referenced in the specified list (current list references are allowed)
           schema:
             type: string
+      tags:
+        - ' History'
   "/":
     summary: System level operations
     description: System level operations
@@ -11471,3 +12015,36 @@ components:
       description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
       schema:
         type: number
+tags:
+  - name: ' History'
+  - name: AllergyIntolerance
+  - name: CarePlan
+  - name: CareTeam
+  - name: Condition
+  - name: Coverage
+  - name: Device
+  - name: DiagnosticReport
+  - name: DocumentReference
+  - name: Encounter
+  - name: Endpoint
+  - name: Goal
+  - name: HealthcareService
+  - name: Immunization
+  - name: Location
+  - name: Media
+  - name: Medication
+  - name: MedicationDispense
+  - name: MedicationRequest
+  - name: Metadata
+  - name: Observation
+  - name: Organization
+  - name: Patient
+  - name: Practitioner
+  - name: PractitionerRole
+  - name: Procedure
+  - name: Provenance
+  - name: Questionnaire
+  - name: QuestionnaireResponse
+  - name: RelatedPerson
+  - name: ServiceRequest
+  - name: Specimen
