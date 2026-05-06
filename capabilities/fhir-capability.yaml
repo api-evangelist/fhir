@@ -1,0 +1,2531 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR)
+  description: This Section describes the expected capabilities of the US Core Server actor which is responsible for providing
+    responses to the queries submitted by the US Core Requestors. The complete list of FHIR profiles, RESTful operations,
+    and search parameters supported by US Core Servers are defined. Systems implementing this capability statement should
+    meet the ONC 2015 Common Clinical Data Set (CCDS) access requirement for Patient Selection 170.315(g)(7) and Application
+    Access - Data Category Request 170.315(g)(8) and the ONC [U.S. Core Data for Interoperability (USCDI) Version 4 July 2023](https://
+  tags:
+  - Fhir
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: fhir
+    baseUri: https://api.example.com
+    description: Fast Healthcare Interoperability Resources (FHIR) HTTP API.
+    resources:
+    - name: metadata
+      path: /metadata
+      operations:
+      - name: metadata
+        method: GET
+        description: Fast Healthcare Interoperability Resources Return the server's capability statement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allergyintolerance
+      path: /AllergyIntolerance
+      operations:
+      - name: searchallergyintolerance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type AllergyIntolerance based on a
+          set of criteria
+        inputParameters:
+        - name: clinical-status
+          in: query
+          type: string
+          description: '**active | inactive | resolved** **NOTE**: This US Core SearchParameter definition extends the usage
+            context of the [Conformance expectation extension](http://h'
+        - name: patient
+          in: query
+          type: string
+          description: '**Who the sensitivity is for** **NOTE**: This US Core SearchParameter definition extends the usage
+            context of the [Conformance expectation extension](http://hl7'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createallergyintolerance
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allergyintolerance-rid
+      path: /AllergyIntolerance/{rid}
+      operations:
+      - name: readallergyintolerance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateallergyintolerance
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchallergyintolerance
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteallergyintolerance
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allergyintolerance-rid-history
+      path: /AllergyIntolerance/{rid}/_history
+      operations:
+      - name: histinstallergyintolerance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allergyintolerance-rid-history-hid
+      path: /AllergyIntolerance/{rid}/_history/{hid}
+      operations:
+      - name: vreadallergyintolerance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: allergyintolerance-history
+      path: /AllergyIntolerance/_history
+      operations:
+      - name: histtypeallergyintolerance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careplan
+      path: /CarePlan
+      operations:
+      - name: searchcareplan
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type CarePlan based on a set of criteria
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          description: '**Type of plan** **NOTE**: This US Core SearchParameter definition extends the usage context of the
+            [Conformance expectation extension](http://hl7.org/fhir/R4/e'
+        - name: date
+          in: query
+          type: string
+          description: '**Time period plan covers** **NOTE**: This US Core SearchParameter definition extends the usage context
+            of the [Conformance expectation extension](http://hl7.or'
+        - name: patient
+          in: query
+          type: string
+          description: '**Who the care plan is for** **NOTE**: This US Core SearchParameter definition extends the usage context
+            of the [Conformance expectation extension](http://hl7.o'
+        - name: status
+          in: query
+          type: string
+          description: '**draft | active | on-hold | revoked | completed | entered-in-error | unknown** **NOTE**: This US
+            Core SearchParameter definition extends the usage context of t'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcareplan
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careplan-rid
+      path: /CarePlan/{rid}
+      operations:
+      - name: readcareplan
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecareplan
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchcareplan
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecareplan
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careplan-rid-history
+      path: /CarePlan/{rid}/_history
+      operations:
+      - name: histinstcareplan
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careplan-rid-history-hid
+      path: /CarePlan/{rid}/_history/{hid}
+      operations:
+      - name: vreadcareplan
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careplan-history
+      path: /CarePlan/_history
+      operations:
+      - name: histtypecareplan
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careteam
+      path: /CareTeam
+      operations:
+      - name: searchcareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type CareTeam based on a set of criteria
+        inputParameters:
+        - name: patient
+          in: query
+          type: string
+          description: '**Who care team is for** **NOTE**: This US Core SearchParameter definition extends the usage context
+            of the [Conformance expectation extension](http://hl7.org/f'
+        - name: role
+          in: query
+          type: string
+          description: Returns CareTeam resources with a participant role matching the specified code.
+        - name: status
+          in: query
+          type: string
+          description: '**proposed | active | suspended | inactive | entered-in-error** **NOTE**: This US Core SearchParameter
+            definition extends the usage context of the [Conformance '
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcareteam
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careteam-rid
+      path: /CareTeam/{rid}
+      operations:
+      - name: readcareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecareteam
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchcareteam
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecareteam
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careteam-rid-history
+      path: /CareTeam/{rid}/_history
+      operations:
+      - name: histinstcareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careteam-rid-history-hid
+      path: /CareTeam/{rid}/_history/{hid}
+      operations:
+      - name: vreadcareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: careteam-history
+      path: /CareTeam/_history
+      operations:
+      - name: histtypecareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: condition
+      path: /Condition
+      operations:
+      - name: searchcondition
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Condition based on a set of criteria
+        inputParameters:
+        - name: abatement-date
+          in: query
+          type: string
+          description: '**Date-related abatements (dateTime and period)** **NOTE**: This US Core SearchParameter definition
+            extends the usage context of the [Conformance expectation ex'
+        - name: asserted-date
+          in: query
+          type: string
+          description: Returns conditions with an [assertedDate extension](http://hl7.org/fhir/StructureDefinition/condition-assertedDate)
+            matching the specified date (dateTime).
+        - name: category
+          in: query
+          type: string
+          description: '**The category of the condition** **NOTE**: This US Core SearchParameter definition extends the usage
+            context of the [Conformance expectation extension](http://'
+        - name: clinical-status
+          in: query
+          type: string
+          description: '**The clinical status of the condition** **NOTE**: This US Core SearchParameter definition extends
+            the usage context of the [Conformance expectation extension]('
+        - name: code
+          in: query
+          type: string
+          description: '**Code for the condition** **NOTE**: This US Core SearchParameter definition extends the usage context
+            of the [Conformance expectation extension](http://hl7.org'
+        - name: encounter
+          in: query
+          type: string
+          description: '**Encounter created as part of** **NOTE**: This US Core SearchParameter definition extends the usage
+            context of the [Conformance expectation extension](http://h'
+        - name: onset-date
+          in: query
+          type: string
+          description: '**Date related onsets (dateTime and Period)** **NOTE**: This US Core SearchParameter definition extends
+            the usage context of the [Conformance expectation extens'
+        - name: patient
+          in: query
+          type: string
+          description: '**Who has the condition?** **NOTE**: This US Core SearchParameter definition extends the usage context
+            of the [Conformance expectation extension](http://hl7.org'
+        - name: recorded-date
+          in: query
+          type: string
+          description: '**Date record was first recorded** **NOTE**: This US Core SearchParameter definition extends the usage
+            context of the [Conformance expectation extension](http:/'
+        - name: _lastUpdated
+          in: query
+          type: string
+          description: '**When the resource version last changed** **NOTE**: This US Core SearchParameter definition extends
+            the usage context of the [Conformance expectation extension'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcondition
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: condition-rid
+      path: /Condition/{rid}
+      operations:
+      - name: readcondition
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecondition
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchcondition
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecondition
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: condition-rid-history
+      path: /Condition/{rid}/_history
+      operations:
+      - name: histinstcondition
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: condition-rid-history-hid
+      path: /Condition/{rid}/_history/{hid}
+      operations:
+      - name: vreadcondition
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: condition-history
+      path: /Condition/_history
+      operations:
+      - name: histtypecondition
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: coverage
+      path: /Coverage
+      operations:
+      - name: searchcoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Coverage based on a set of criteria
+        inputParameters:
+        - name: patient
+          in: query
+          type: string
+          description: '**Retrieve coverages for a patient** **NOTE**: This US Core SearchParameter definition extends the
+            usage context of the [Conformance expectation extension](http'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcoverage
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: coverage-rid
+      path: /Coverage/{rid}
+      operations:
+      - name: readcoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecoverage
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchcoverage
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecoverage
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: coverage-rid-history
+      path: /Coverage/{rid}/_history
+      operations:
+      - name: histinstcoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: coverage-rid-history-hid
+      path: /Coverage/{rid}/_history/{hid}
+      operations:
+      - name: vreadcoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: coverage-history
+      path: /Coverage/_history
+      operations:
+      - name: histtypecoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: device
+      path: /Device
+      operations:
+      - name: searchdevice
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Device based on a set of criteria
+        inputParameters:
+        - name: patient
+          in: query
+          type: string
+          description: '**Patient information, if the resource is affixed to a person** **NOTE**: This US Core SearchParameter
+            definition extends the usage context of the [Conformance '
+        - name: status
+          in: query
+          type: string
+          description: '**active | inactive | entered-in-error | unknown** **NOTE**: This US Core SearchParameter definition
+            extends the usage context of the [Conformance expectation e'
+        - name: type
+          in: query
+          type: string
+          description: '**The type of the device** **NOTE**: This US Core SearchParameter definition extends the usage context
+            of the [Conformance expectation extension](http://hl7.org'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdevice
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: device-rid
+      path: /Device/{rid}
+      operations:
+      - name: readdevice
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedevice
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchdevice
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletedevice
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: device-rid-history
+      path: /Device/{rid}/_history
+      operations:
+      - name: histinstdevice
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: device-rid-history-hid
+      path: /Device/{rid}/_history/{hid}
+      operations:
+      - name: vreaddevice
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: device-history
+      path: /Device/_history
+      operations:
+      - name: histtypedevice
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: diagnosticreport
+      path: /DiagnosticReport
+      operations:
+      - name: searchdiagnosticreport
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type DiagnosticReport based on a set
+          of criteria
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          description: '**Which diagnostic discipline/department created the report** **NOTE**: This US Core SearchParameter
+            definition extends the usage context of the [Conformance ex'
+        - name: code
+          in: query
+          type: string
+          description: '**The code for the report, as opposed to codes for the atomic results, which are the names on the
+            observation resource referred to from the result** **NOTE**: T'
+        - name: date
+          in: query
+          type: string
+          description: '**The clinically relevant time of the report** **NOTE**: This US Core SearchParameter definition extends
+            the usage context of the [Conformance expectation exten'
+        - name: _lastUpdated
+          in: query
+          type: string
+          description: '**When the resource version last changed** **NOTE**: This US Core SearchParameter definition extends
+            the usage context of the [Conformance expectation extension'
+        - name: patient
+          in: query
+          type: string
+          description: '**The subject of the report if a patient** **NOTE**: This US Core SearchParameter definition extends
+            the usage context of the [Conformance expectation extension'
+        - name: status
+          in: query
+          type: string
+          description: '**The status of the report** **NOTE**: This US Core SearchParameter definition extends the usage context
+            of the [Conformance expectation extension](http://hl7.o'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: creatediagnosticreport
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: diagnosticreport-rid
+      path: /DiagnosticReport/{rid}
+      operations:
+      - name: readdiagnosticreport
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatediagnosticreport
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchdiagnosticreport
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: fhir-rest
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR).
+    resources:
+    - path: /metadata
+      name: metadata
+      operations:
+      - method: GET
+        name: metadata
+        description: Fast Healthcare Interoperability Resources Return the server's capability statement
+        call: fhir.metadata
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance
+      name: searchallergyintolerance
+      operations:
+      - method: GET
+        name: searchallergyintolerance
+        description: Fast Healthcare Interoperability Resources Search all resources of type AllergyIntolerance based on a
+          set of criteria
+        call: fhir.searchallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance
+      name: createallergyintolerance
+      operations:
+      - method: POST
+        name: createallergyintolerance
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir.createallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance/{rid}
+      name: readallergyintolerance
+      operations:
+      - method: GET
+        name: readallergyintolerance
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir.readallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance/{rid}
+      name: updateallergyintolerance
+      operations:
+      - method: PUT
+        name: updateallergyintolerance
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir.updateallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance/{rid}
+      name: patchallergyintolerance
+      operations:
+      - method: PATCH
+        name: patchallergyintolerance
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir.patchallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance/{rid}
+      name: deleteallergyintolerance
+      operations:
+      - method: DELETE
+        name: deleteallergyintolerance
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir.deleteallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance/{rid}/_history
+      name: histinstallergyintolerance
+      operations:
+      - method: GET
+        name: histinstallergyintolerance
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histinstallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance/{rid}/_history/{hid}
+      name: vreadallergyintolerance
+      operations:
+      - method: GET
+        name: vreadallergyintolerance
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir.vreadallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /AllergyIntolerance/_history
+      name: histtypeallergyintolerance
+      operations:
+      - method: GET
+        name: histtypeallergyintolerance
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histtypeallergyintolerance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan
+      name: searchcareplan
+      operations:
+      - method: GET
+        name: searchcareplan
+        description: Fast Healthcare Interoperability Resources Search all resources of type CarePlan based on a set of criteria
+        call: fhir.searchcareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan
+      name: createcareplan
+      operations:
+      - method: POST
+        name: createcareplan
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir.createcareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan/{rid}
+      name: readcareplan
+      operations:
+      - method: GET
+        name: readcareplan
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir.readcareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan/{rid}
+      name: updatecareplan
+      operations:
+      - method: PUT
+        name: updatecareplan
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir.updatecareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan/{rid}
+      name: patchcareplan
+      operations:
+      - method: PATCH
+        name: patchcareplan
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir.patchcareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan/{rid}
+      name: deletecareplan
+      operations:
+      - method: DELETE
+        name: deletecareplan
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir.deletecareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan/{rid}/_history
+      name: histinstcareplan
+      operations:
+      - method: GET
+        name: histinstcareplan
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histinstcareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan/{rid}/_history/{hid}
+      name: vreadcareplan
+      operations:
+      - method: GET
+        name: vreadcareplan
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir.vreadcareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CarePlan/_history
+      name: histtypecareplan
+      operations:
+      - method: GET
+        name: histtypecareplan
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histtypecareplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam
+      name: searchcareteam
+      operations:
+      - method: GET
+        name: searchcareteam
+        description: Fast Healthcare Interoperability Resources Search all resources of type CareTeam based on a set of criteria
+        call: fhir.searchcareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam
+      name: createcareteam
+      operations:
+      - method: POST
+        name: createcareteam
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir.createcareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam/{rid}
+      name: readcareteam
+      operations:
+      - method: GET
+        name: readcareteam
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir.readcareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam/{rid}
+      name: updatecareteam
+      operations:
+      - method: PUT
+        name: updatecareteam
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir.updatecareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam/{rid}
+      name: patchcareteam
+      operations:
+      - method: PATCH
+        name: patchcareteam
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir.patchcareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam/{rid}
+      name: deletecareteam
+      operations:
+      - method: DELETE
+        name: deletecareteam
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir.deletecareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam/{rid}/_history
+      name: histinstcareteam
+      operations:
+      - method: GET
+        name: histinstcareteam
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histinstcareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam/{rid}/_history/{hid}
+      name: vreadcareteam
+      operations:
+      - method: GET
+        name: vreadcareteam
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir.vreadcareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CareTeam/_history
+      name: histtypecareteam
+      operations:
+      - method: GET
+        name: histtypecareteam
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histtypecareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition
+      name: searchcondition
+      operations:
+      - method: GET
+        name: searchcondition
+        description: Fast Healthcare Interoperability Resources Search all resources of type Condition based on a set of criteria
+        call: fhir.searchcondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition
+      name: createcondition
+      operations:
+      - method: POST
+        name: createcondition
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir.createcondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition/{rid}
+      name: readcondition
+      operations:
+      - method: GET
+        name: readcondition
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir.readcondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition/{rid}
+      name: updatecondition
+      operations:
+      - method: PUT
+        name: updatecondition
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir.updatecondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition/{rid}
+      name: patchcondition
+      operations:
+      - method: PATCH
+        name: patchcondition
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir.patchcondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition/{rid}
+      name: deletecondition
+      operations:
+      - method: DELETE
+        name: deletecondition
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir.deletecondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition/{rid}/_history
+      name: histinstcondition
+      operations:
+      - method: GET
+        name: histinstcondition
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histinstcondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition/{rid}/_history/{hid}
+      name: vreadcondition
+      operations:
+      - method: GET
+        name: vreadcondition
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir.vreadcondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Condition/_history
+      name: histtypecondition
+      operations:
+      - method: GET
+        name: histtypecondition
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histtypecondition
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage
+      name: searchcoverage
+      operations:
+      - method: GET
+        name: searchcoverage
+        description: Fast Healthcare Interoperability Resources Search all resources of type Coverage based on a set of criteria
+        call: fhir.searchcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage
+      name: createcoverage
+      operations:
+      - method: POST
+        name: createcoverage
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir.createcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage/{rid}
+      name: readcoverage
+      operations:
+      - method: GET
+        name: readcoverage
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir.readcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage/{rid}
+      name: updatecoverage
+      operations:
+      - method: PUT
+        name: updatecoverage
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir.updatecoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage/{rid}
+      name: patchcoverage
+      operations:
+      - method: PATCH
+        name: patchcoverage
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir.patchcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage/{rid}
+      name: deletecoverage
+      operations:
+      - method: DELETE
+        name: deletecoverage
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir.deletecoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage/{rid}/_history
+      name: histinstcoverage
+      operations:
+      - method: GET
+        name: histinstcoverage
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histinstcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage/{rid}/_history/{hid}
+      name: vreadcoverage
+      operations:
+      - method: GET
+        name: vreadcoverage
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir.vreadcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Coverage/_history
+      name: histtypecoverage
+      operations:
+      - method: GET
+        name: histtypecoverage
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histtypecoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device
+      name: searchdevice
+      operations:
+      - method: GET
+        name: searchdevice
+        description: Fast Healthcare Interoperability Resources Search all resources of type Device based on a set of criteria
+        call: fhir.searchdevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device
+      name: createdevice
+      operations:
+      - method: POST
+        name: createdevice
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir.createdevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device/{rid}
+      name: readdevice
+      operations:
+      - method: GET
+        name: readdevice
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir.readdevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device/{rid}
+      name: updatedevice
+      operations:
+      - method: PUT
+        name: updatedevice
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir.updatedevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device/{rid}
+      name: patchdevice
+      operations:
+      - method: PATCH
+        name: patchdevice
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir.patchdevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device/{rid}
+      name: deletedevice
+      operations:
+      - method: DELETE
+        name: deletedevice
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir.deletedevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device/{rid}/_history
+      name: histinstdevice
+      operations:
+      - method: GET
+        name: histinstdevice
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histinstdevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device/{rid}/_history/{hid}
+      name: vreaddevice
+      operations:
+      - method: GET
+        name: vreaddevice
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir.vreaddevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Device/_history
+      name: histtypedevice
+      operations:
+      - method: GET
+        name: histtypedevice
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir.histtypedevice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /DiagnosticReport
+      name: searchdiagnosticreport
+      operations:
+      - method: GET
+        name: searchdiagnosticreport
+        description: Fast Healthcare Interoperability Resources Search all resources of type DiagnosticReport based on a set
+          of criteria
+        call: fhir.searchdiagnosticreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /DiagnosticReport
+      name: creatediagnosticreport
+      operations:
+      - method: POST
+        name: creatediagnosticreport
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir.creatediagnosticreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /DiagnosticReport/{rid}
+      name: readdiagnosticreport
+      operations:
+      - method: GET
+        name: readdiagnosticreport
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir.readdiagnosticreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /DiagnosticReport/{rid}
+      name: updatediagnosticreport
+      operations:
+      - method: PUT
+        name: updatediagnosticreport
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir.updatediagnosticreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /DiagnosticReport/{rid}
+      name: patchdiagnosticreport
+      operations:
+      - method: PATCH
+        name: patchdiagnosticreport
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir.patchdiagnosticreport
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: fhir-mcp
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) for AI agent use.
+    tools:
+    - name: metadata
+      description: Fast Healthcare Interoperability Resources Return the server's capability statement
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.metadata
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchallergyintolerance
+      description: Fast Healthcare Interoperability Resources Search all resources of type AllergyIntolerance based on a set
+        of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.searchallergyintolerance
+      with:
+        clinical-status: tools.clinical-status
+        patient: tools.patient
+      inputParameters:
+      - name: clinical-status
+        type: string
+        description: '**active | inactive | resolved** **NOTE**: This US Core SearchParameter definition extends the usage
+          context of the [Conformance expectation extension](http://h'
+      - name: patient
+        type: string
+        description: '**Who the sensitivity is for** **NOTE**: This US Core SearchParameter definition extends the usage context
+          of the [Conformance expectation extension](http://hl7'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createallergyintolerance
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.createallergyintolerance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readallergyintolerance
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.readallergyintolerance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateallergyintolerance
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir.updateallergyintolerance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchallergyintolerance
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.patchallergyintolerance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteallergyintolerance
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir.deleteallergyintolerance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histinstallergyintolerance
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histinstallergyintolerance
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vreadallergyintolerance
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.vreadallergyintolerance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histtypeallergyintolerance
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histtypeallergyintolerance
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchcareplan
+      description: Fast Healthcare Interoperability Resources Search all resources of type CarePlan based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.searchcareplan
+      with:
+        category: tools.category
+        date: tools.date
+        patient: tools.patient
+        status: tools.status
+      inputParameters:
+      - name: category
+        type: string
+        description: '**Type of plan** **NOTE**: This US Core SearchParameter definition extends the usage context of the
+          [Conformance expectation extension](http://hl7.org/fhir/R4/e'
+      - name: date
+        type: string
+        description: '**Time period plan covers** **NOTE**: This US Core SearchParameter definition extends the usage context
+          of the [Conformance expectation extension](http://hl7.or'
+      - name: patient
+        type: string
+        description: '**Who the care plan is for** **NOTE**: This US Core SearchParameter definition extends the usage context
+          of the [Conformance expectation extension](http://hl7.o'
+      - name: status
+        type: string
+        description: '**draft | active | on-hold | revoked | completed | entered-in-error | unknown** **NOTE**: This US Core
+          SearchParameter definition extends the usage context of t'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcareplan
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.createcareplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readcareplan
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.readcareplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatecareplan
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir.updatecareplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchcareplan
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.patchcareplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecareplan
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir.deletecareplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histinstcareplan
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histinstcareplan
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vreadcareplan
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.vreadcareplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histtypecareplan
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histtypecareplan
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchcareteam
+      description: Fast Healthcare Interoperability Resources Search all resources of type CareTeam based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.searchcareteam
+      with:
+        patient: tools.patient
+        role: tools.role
+        status: tools.status
+      inputParameters:
+      - name: patient
+        type: string
+        description: '**Who care team is for** **NOTE**: This US Core SearchParameter definition extends the usage context
+          of the [Conformance expectation extension](http://hl7.org/f'
+      - name: role
+        type: string
+        description: Returns CareTeam resources with a participant role matching the specified code.
+      - name: status
+        type: string
+        description: '**proposed | active | suspended | inactive | entered-in-error** **NOTE**: This US Core SearchParameter
+          definition extends the usage context of the [Conformance '
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcareteam
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.createcareteam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readcareteam
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.readcareteam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatecareteam
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir.updatecareteam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchcareteam
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.patchcareteam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecareteam
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir.deletecareteam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histinstcareteam
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histinstcareteam
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vreadcareteam
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.vreadcareteam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histtypecareteam
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histtypecareteam
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchcondition
+      description: Fast Healthcare Interoperability Resources Search all resources of type Condition based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.searchcondition
+      with:
+        abatement-date: tools.abatement-date
+        asserted-date: tools.asserted-date
+        category: tools.category
+        clinical-status: tools.clinical-status
+        code: tools.code
+        encounter: tools.encounter
+        onset-date: tools.onset-date
+        patient: tools.patient
+        recorded-date: tools.recorded-date
+        _lastUpdated: tools._lastUpdated
+      inputParameters:
+      - name: abatement-date
+        type: string
+        description: '**Date-related abatements (dateTime and period)** **NOTE**: This US Core SearchParameter definition
+          extends the usage context of the [Conformance expectation ex'
+      - name: asserted-date
+        type: string
+        description: Returns conditions with an [assertedDate extension](http://hl7.org/fhir/StructureDefinition/condition-assertedDate)
+          matching the specified date (dateTime).
+      - name: category
+        type: string
+        description: '**The category of the condition** **NOTE**: This US Core SearchParameter definition extends the usage
+          context of the [Conformance expectation extension](http://'
+      - name: clinical-status
+        type: string
+        description: '**The clinical status of the condition** **NOTE**: This US Core SearchParameter definition extends the
+          usage context of the [Conformance expectation extension]('
+      - name: code
+        type: string
+        description: '**Code for the condition** **NOTE**: This US Core SearchParameter definition extends the usage context
+          of the [Conformance expectation extension](http://hl7.org'
+      - name: encounter
+        type: string
+        description: '**Encounter created as part of** **NOTE**: This US Core SearchParameter definition extends the usage
+          context of the [Conformance expectation extension](http://h'
+      - name: onset-date
+        type: string
+        description: '**Date related onsets (dateTime and Period)** **NOTE**: This US Core SearchParameter definition extends
+          the usage context of the [Conformance expectation extens'
+      - name: patient
+        type: string
+        description: '**Who has the condition?** **NOTE**: This US Core SearchParameter definition extends the usage context
+          of the [Conformance expectation extension](http://hl7.org'
+      - name: recorded-date
+        type: string
+        description: '**Date record was first recorded** **NOTE**: This US Core SearchParameter definition extends the usage
+          context of the [Conformance expectation extension](http:/'
+      - name: _lastUpdated
+        type: string
+        description: '**When the resource version last changed** **NOTE**: This US Core SearchParameter definition extends
+          the usage context of the [Conformance expectation extension'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcondition
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.createcondition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readcondition
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.readcondition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatecondition
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir.updatecondition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchcondition
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.patchcondition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecondition
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir.deletecondition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histinstcondition
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histinstcondition
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vreadcondition
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.vreadcondition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histtypecondition
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histtypecondition
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchcoverage
+      description: Fast Healthcare Interoperability Resources Search all resources of type Coverage based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.searchcoverage
+      with:
+        patient: tools.patient
+      inputParameters:
+      - name: patient
+        type: string
+        description: '**Retrieve coverages for a patient** **NOTE**: This US Core SearchParameter definition extends the usage
+          context of the [Conformance expectation extension](http'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcoverage
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.createcoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readcoverage
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.readcoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatecoverage
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir.updatecoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchcoverage
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.patchcoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecoverage
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir.deletecoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histinstcoverage
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histinstcoverage
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vreadcoverage
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.vreadcoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histtypecoverage
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histtypecoverage
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchdevice
+      description: Fast Healthcare Interoperability Resources Search all resources of type Device based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.searchdevice
+      with:
+        patient: tools.patient
+        status: tools.status
+        type: tools.type
+      inputParameters:
+      - name: patient
+        type: string
+        description: '**Patient information, if the resource is affixed to a person** **NOTE**: This US Core SearchParameter
+          definition extends the usage context of the [Conformance '
+      - name: status
+        type: string
+        description: '**active | inactive | entered-in-error | unknown** **NOTE**: This US Core SearchParameter definition
+          extends the usage context of the [Conformance expectation e'
+      - name: type
+        type: string
+        description: '**The type of the device** **NOTE**: This US Core SearchParameter definition extends the usage context
+          of the [Conformance expectation extension](http://hl7.org'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createdevice
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.createdevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readdevice
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.readdevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatedevice
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir.updatedevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchdevice
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.patchdevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletedevice
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir.deletedevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histinstdevice
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histinstdevice
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vreaddevice
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.vreaddevice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: histtypedevice
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.histtypedevice
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      inputParameters:
+      - name: _since
+        type: string
+        description: Only include resource versions that were created at or after the given instant in time
+      - name: _at
+        type: string
+        description: Only include resource versions that were current at some point during the time period specified in the
+          date time value (see Search notes on date searching)
+      - name: _list
+        type: string
+        description: Only include resource versions that are referenced in the specified list (current list references are
+          allowed)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchdiagnosticreport
+      description: Fast Healthcare Interoperability Resources Search all resources of type DiagnosticReport based on a set
+        of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.searchdiagnosticreport
+      with:
+        category: tools.category
+        code: tools.code
+        date: tools.date
+        _lastUpdated: tools._lastUpdated
+        patient: tools.patient
+        status: tools.status
+      inputParameters:
+      - name: category
+        type: string
+        description: '**Which diagnostic discipline/department created the report** **NOTE**: This US Core SearchParameter
+          definition extends the usage context of the [Conformance ex'
+      - name: code
+        type: string
+        description: '**The code for the report, as opposed to codes for the atomic results, which are the names on the observation
+          resource referred to from the result** **NOTE**: T'
+      - name: date
+        type: string
+        description: '**The clinically relevant time of the report** **NOTE**: This US Core SearchParameter definition extends
+          the usage context of the [Conformance expectation exten'
+      - name: _lastUpdated
+        type: string
+        description: '**When the resource version last changed** **NOTE**: This US Core SearchParameter definition extends
+          the usage context of the [Conformance expectation extension'
+      - name: patient
+        type: string
+        description: '**The subject of the report if a patient** **NOTE**: This US Core SearchParameter definition extends
+          the usage context of the [Conformance expectation extension'
+      - name: status
+        type: string
+        description: '**The status of the report** **NOTE**: This US Core SearchParameter definition extends the usage context
+          of the [Conformance expectation extension](http://hl7.o'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creatediagnosticreport
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.creatediagnosticreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: readdiagnosticreport
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir.readdiagnosticreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatediagnosticreport
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir.updatediagnosticreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patchdiagnosticreport
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir.patchdiagnosticreport
+      outputParameters:
+      - type: object
+        mapping: $.
