@@ -1,0 +1,387 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — Coverage
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — Coverage. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type Coverage based on a set of criteria. Self-contained Naftiko capability
+    covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - Coverage
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-coverage
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — Coverage business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: Coverage
+      path: /Coverage
+      operations:
+      - name: searchcoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Coverage based on a set of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: patient
+          in: query
+          type: string
+          description: '**Retrieve coverages for a patient**  '
+      - name: createcoverage
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: Coverage-_history
+      path: /Coverage/_history
+      operations:
+      - name: histtypecoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Coverage-rid
+      path: /Coverage/{rid}
+      operations:
+      - name: readcoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecoverage
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchcoverage
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecoverage
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Coverage-rid-_history
+      path: /Coverage/{rid}/_history
+      operations:
+      - name: histinstcoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Coverage-rid-_history-hid
+      path: /Coverage/{rid}/_history/{hid}
+      operations:
+      - name: vreadcoverage
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-coverage-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — Coverage. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/coverage
+      name: coverage
+      description: REST surface for Coverage.
+      operations:
+      - method: GET
+        name: searchcoverage
+        description: Fast Healthcare Interoperability Resources Search all resources of type Coverage based on a set of criteria
+        call: fhir-coverage.searchcoverage
+        with:
+          patient: rest.patient
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcoverage
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-coverage.createcoverage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/coverage/history
+      name: coverage-history
+      description: REST surface for Coverage-_history.
+      operations:
+      - method: GET
+        name: histtypecoverage
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-coverage.histtypecoverage
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/coverage/{rid}
+      name: coverage-rid
+      description: REST surface for Coverage-rid.
+      operations:
+      - method: GET
+        name: readcoverage
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-coverage.readcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecoverage
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-coverage.updatecoverage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchcoverage
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-coverage.patchcoverage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecoverage
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-coverage.deletecoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/coverage/{rid}/history
+      name: coverage-rid-history
+      description: REST surface for Coverage-rid-_history.
+      operations:
+      - method: GET
+        name: histinstcoverage
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-coverage.histinstcoverage
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/coverage/{rid}/history/{hid}
+      name: coverage-rid-history-hid
+      description: REST surface for Coverage-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadcoverage
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-coverage.vreadcoverage
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-coverage-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — Coverage. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type Coverage based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-coverage.searchcoverage
+      with:
+        patient: tools.patient
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-coverage.createcoverage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-coverage.histtypecoverage
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-coverage.readcoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-coverage.updatecoverage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-coverage.patchcoverage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-coverage.deletecoverage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-coverage.histinstcoverage
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-coverage.vreadcoverage
+      outputParameters:
+      - type: object
+        mapping: $.

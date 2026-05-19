@@ -1,0 +1,399 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — CareTeam
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — CareTeam. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type CareTeam based on a set of criteria. Self-contained Naftiko capability
+    covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - CareTeam
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-careteam
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — CareTeam business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: CareTeam
+      path: /CareTeam
+      operations:
+      - name: searchcareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type CareTeam based on a set of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: patient
+          in: query
+          type: string
+          description: '**Who care team is for**  '
+        - name: role
+          in: query
+          type: string
+          description: Returns CareTeam resources with a participant role matching the specified code.
+        - name: status
+          in: query
+          type: string
+          description: '**proposed | active | suspended | inactive | entered-in-error**  '
+      - name: createcareteam
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: CareTeam-_history
+      path: /CareTeam/_history
+      operations:
+      - name: histtypecareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: CareTeam-rid
+      path: /CareTeam/{rid}
+      operations:
+      - name: readcareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecareteam
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchcareteam
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecareteam
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: CareTeam-rid-_history
+      path: /CareTeam/{rid}/_history
+      operations:
+      - name: histinstcareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: CareTeam-rid-_history-hid
+      path: /CareTeam/{rid}/_history/{hid}
+      operations:
+      - name: vreadcareteam
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-careteam-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — CareTeam. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/careteam
+      name: careteam
+      description: REST surface for CareTeam.
+      operations:
+      - method: GET
+        name: searchcareteam
+        description: Fast Healthcare Interoperability Resources Search all resources of type CareTeam based on a set of criteria
+        call: fhir-careteam.searchcareteam
+        with:
+          patient: rest.patient
+          role: rest.role
+          status: rest.status
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcareteam
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-careteam.createcareteam
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/careteam/history
+      name: careteam-history
+      description: REST surface for CareTeam-_history.
+      operations:
+      - method: GET
+        name: histtypecareteam
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-careteam.histtypecareteam
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/careteam/{rid}
+      name: careteam-rid
+      description: REST surface for CareTeam-rid.
+      operations:
+      - method: GET
+        name: readcareteam
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-careteam.readcareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecareteam
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-careteam.updatecareteam
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchcareteam
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-careteam.patchcareteam
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecareteam
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-careteam.deletecareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/careteam/{rid}/history
+      name: careteam-rid-history
+      description: REST surface for CareTeam-rid-_history.
+      operations:
+      - method: GET
+        name: histinstcareteam
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-careteam.histinstcareteam
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/careteam/{rid}/history/{hid}
+      name: careteam-rid-history-hid
+      description: REST surface for CareTeam-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadcareteam
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-careteam.vreadcareteam
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-careteam-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — CareTeam. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type CareTeam based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-careteam.searchcareteam
+      with:
+        patient: tools.patient
+        role: tools.role
+        status: tools.status
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-careteam.createcareteam
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-careteam.histtypecareteam
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-careteam.readcareteam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-careteam.updatecareteam
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-careteam.patchcareteam
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-careteam.deletecareteam
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-careteam.histinstcareteam
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-careteam.vreadcareteam
+      outputParameters:
+      - type: object
+        mapping: $.

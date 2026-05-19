@@ -1,0 +1,396 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — PractitionerRole
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — PractitionerRole. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type PractitionerRole based on a set of criteria. Self-contained Naftiko
+    capability covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - PractitionerRole
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-practitionerrole
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — PractitionerRole business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: PractitionerRole
+      path: /PractitionerRole
+      operations:
+      - name: searchpractitionerrole
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type PractitionerRole based on a set
+          of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: practitioner
+          in: query
+          type: string
+          description: '**Practitioner that is able to provide the defined services for the organization**  '
+        - name: specialty
+          in: query
+          type: string
+          description: '**The practitioner has this specialty at an organization**  '
+      - name: createpractitionerrole
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: PractitionerRole-_history
+      path: /PractitionerRole/_history
+      operations:
+      - name: histtypepractitionerrole
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: PractitionerRole-rid
+      path: /PractitionerRole/{rid}
+      operations:
+      - name: readpractitionerrole
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepractitionerrole
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchpractitionerrole
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletepractitionerrole
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: PractitionerRole-rid-_history
+      path: /PractitionerRole/{rid}/_history
+      operations:
+      - name: histinstpractitionerrole
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: PractitionerRole-rid-_history-hid
+      path: /PractitionerRole/{rid}/_history/{hid}
+      operations:
+      - name: vreadpractitionerrole
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-practitionerrole-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — PractitionerRole. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/practitionerrole
+      name: practitionerrole
+      description: REST surface for PractitionerRole.
+      operations:
+      - method: GET
+        name: searchpractitionerrole
+        description: Fast Healthcare Interoperability Resources Search all resources of type PractitionerRole based on a set
+          of criteria
+        call: fhir-practitionerrole.searchpractitionerrole
+        with:
+          practitioner: rest.practitioner
+          specialty: rest.specialty
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createpractitionerrole
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-practitionerrole.createpractitionerrole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/practitionerrole/history
+      name: practitionerrole-history
+      description: REST surface for PractitionerRole-_history.
+      operations:
+      - method: GET
+        name: histtypepractitionerrole
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-practitionerrole.histtypepractitionerrole
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/practitionerrole/{rid}
+      name: practitionerrole-rid
+      description: REST surface for PractitionerRole-rid.
+      operations:
+      - method: GET
+        name: readpractitionerrole
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-practitionerrole.readpractitionerrole
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatepractitionerrole
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-practitionerrole.updatepractitionerrole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchpractitionerrole
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-practitionerrole.patchpractitionerrole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletepractitionerrole
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-practitionerrole.deletepractitionerrole
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/practitionerrole/{rid}/history
+      name: practitionerrole-rid-history
+      description: REST surface for PractitionerRole-rid-_history.
+      operations:
+      - method: GET
+        name: histinstpractitionerrole
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-practitionerrole.histinstpractitionerrole
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/practitionerrole/{rid}/history/{hid}
+      name: practitionerrole-rid-history-hid
+      description: REST surface for PractitionerRole-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadpractitionerrole
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-practitionerrole.vreadpractitionerrole
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-practitionerrole-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — PractitionerRole. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type PractitionerRole based on a set
+        of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-practitionerrole.searchpractitionerrole
+      with:
+        practitioner: tools.practitioner
+        specialty: tools.specialty
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-practitionerrole.createpractitionerrole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-practitionerrole.histtypepractitionerrole
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-practitionerrole.readpractitionerrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-practitionerrole.updatepractitionerrole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-practitionerrole.patchpractitionerrole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-practitionerrole.deletepractitionerrole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-practitionerrole.histinstpractitionerrole
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-practitionerrole.vreadpractitionerrole
+      outputParameters:
+      - type: object
+        mapping: $.

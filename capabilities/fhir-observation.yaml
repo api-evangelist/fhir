@@ -1,0 +1,419 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — Observation
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — Observation. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type Observation based on a set of criteria. Self-contained Naftiko
+    capability covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - Observation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-observation
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — Observation business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: Observation
+      path: /Observation
+      operations:
+      - name: searchobservation
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Observation based on a set of
+          criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          description: '**The classification of the type of observation**  '
+        - name: code
+          in: query
+          type: string
+          description: '**The code of the observation type**  '
+        - name: date
+          in: query
+          type: string
+          description: '**Obtained date/time. If the obtained element is a period, a date that falls in the period**  '
+        - name: _lastUpdated
+          in: query
+          type: string
+          description: '**When the resource version last changed**  '
+        - name: patient
+          in: query
+          type: string
+          description: '**The subject that the observation is about (if patient)**  '
+        - name: status
+          in: query
+          type: string
+          description: '**The status of the observation**  '
+      - name: createobservation
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: Observation-_history
+      path: /Observation/_history
+      operations:
+      - name: histtypeobservation
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Observation-rid
+      path: /Observation/{rid}
+      operations:
+      - name: readobservation
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateobservation
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchobservation
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteobservation
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Observation-rid-_history
+      path: /Observation/{rid}/_history
+      operations:
+      - name: histinstobservation
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Observation-rid-_history-hid
+      path: /Observation/{rid}/_history/{hid}
+      operations:
+      - name: vreadobservation
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-observation-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — Observation. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/observation
+      name: observation
+      description: REST surface for Observation.
+      operations:
+      - method: GET
+        name: searchobservation
+        description: Fast Healthcare Interoperability Resources Search all resources of type Observation based on a set of
+          criteria
+        call: fhir-observation.searchobservation
+        with:
+          category: rest.category
+          code: rest.code
+          date: rest.date
+          _lastUpdated: rest._lastUpdated
+          patient: rest.patient
+          status: rest.status
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createobservation
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-observation.createobservation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observation/history
+      name: observation-history
+      description: REST surface for Observation-_history.
+      operations:
+      - method: GET
+        name: histtypeobservation
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-observation.histtypeobservation
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observation/{rid}
+      name: observation-rid
+      description: REST surface for Observation-rid.
+      operations:
+      - method: GET
+        name: readobservation
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-observation.readobservation
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateobservation
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-observation.updateobservation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchobservation
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-observation.patchobservation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteobservation
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-observation.deleteobservation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observation/{rid}/history
+      name: observation-rid-history
+      description: REST surface for Observation-rid-_history.
+      operations:
+      - method: GET
+        name: histinstobservation
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-observation.histinstobservation
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/observation/{rid}/history/{hid}
+      name: observation-rid-history-hid
+      description: REST surface for Observation-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadobservation
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-observation.vreadobservation
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-observation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — Observation. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type Observation based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-observation.searchobservation
+      with:
+        category: tools.category
+        code: tools.code
+        date: tools.date
+        _lastUpdated: tools._lastUpdated
+        patient: tools.patient
+        status: tools.status
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-observation.createobservation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-observation.histtypeobservation
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-observation.readobservation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-observation.updateobservation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-observation.patchobservation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-observation.deleteobservation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-observation.histinstobservation
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-observation.vreadobservation
+      outputParameters:
+      - type: object
+        mapping: $.

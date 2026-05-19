@@ -1,0 +1,380 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — Provenance
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — Provenance. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type Provenance based on a set of criteria. Self-contained Naftiko
+    capability covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - Provenance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-provenance
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — Provenance business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: Provenance
+      path: /Provenance
+      operations:
+      - name: searchprovenance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Provenance based on a set of
+          criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createprovenance
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: Provenance-_history
+      path: /Provenance/_history
+      operations:
+      - name: histtypeprovenance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Provenance-rid
+      path: /Provenance/{rid}
+      operations:
+      - name: readprovenance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateprovenance
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchprovenance
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteprovenance
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Provenance-rid-_history
+      path: /Provenance/{rid}/_history
+      operations:
+      - name: histinstprovenance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Provenance-rid-_history-hid
+      path: /Provenance/{rid}/_history/{hid}
+      operations:
+      - name: vreadprovenance
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-provenance-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — Provenance. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/provenance
+      name: provenance
+      description: REST surface for Provenance.
+      operations:
+      - method: GET
+        name: searchprovenance
+        description: Fast Healthcare Interoperability Resources Search all resources of type Provenance based on a set of
+          criteria
+        call: fhir-provenance.searchprovenance
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createprovenance
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-provenance.createprovenance
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/provenance/history
+      name: provenance-history
+      description: REST surface for Provenance-_history.
+      operations:
+      - method: GET
+        name: histtypeprovenance
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-provenance.histtypeprovenance
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/provenance/{rid}
+      name: provenance-rid
+      description: REST surface for Provenance-rid.
+      operations:
+      - method: GET
+        name: readprovenance
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-provenance.readprovenance
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateprovenance
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-provenance.updateprovenance
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchprovenance
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-provenance.patchprovenance
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteprovenance
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-provenance.deleteprovenance
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/provenance/{rid}/history
+      name: provenance-rid-history
+      description: REST surface for Provenance-rid-_history.
+      operations:
+      - method: GET
+        name: histinstprovenance
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-provenance.histinstprovenance
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/provenance/{rid}/history/{hid}
+      name: provenance-rid-history-hid
+      description: REST surface for Provenance-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadprovenance
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-provenance.vreadprovenance
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-provenance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — Provenance. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type Provenance based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-provenance.searchprovenance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-provenance.createprovenance
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-provenance.histtypeprovenance
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-provenance.readprovenance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-provenance.updateprovenance
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-provenance.patchprovenance
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-provenance.deleteprovenance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-provenance.histinstprovenance
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-provenance.vreadprovenance
+      outputParameters:
+      - type: object
+        mapping: $.

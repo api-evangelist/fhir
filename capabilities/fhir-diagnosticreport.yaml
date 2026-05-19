@@ -1,0 +1,421 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — DiagnosticReport
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — DiagnosticReport. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type DiagnosticReport based on a set of criteria. Self-contained Naftiko
+    capability covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - DiagnosticReport
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-diagnosticreport
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — DiagnosticReport business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: DiagnosticReport
+      path: /DiagnosticReport
+      operations:
+      - name: searchdiagnosticreport
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type DiagnosticReport based on a set
+          of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          description: '**Which diagnostic discipline/department created the report**  '
+        - name: code
+          in: query
+          type: string
+          description: '**The code for the report, as opposed to codes for the atomic results, which are the names on the
+            observation resource referred to from the result**  '
+        - name: date
+          in: query
+          type: string
+          description: '**The clinically relevant time of the report**  '
+        - name: _lastUpdated
+          in: query
+          type: string
+          description: '**When the resource version last changed**  '
+        - name: patient
+          in: query
+          type: string
+          description: '**The subject of the report if a patient**  '
+        - name: status
+          in: query
+          type: string
+          description: '**The status of the report**  '
+      - name: creatediagnosticreport
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: DiagnosticReport-_history
+      path: /DiagnosticReport/_history
+      operations:
+      - name: histtypediagnosticreport
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: DiagnosticReport-rid
+      path: /DiagnosticReport/{rid}
+      operations:
+      - name: readdiagnosticreport
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatediagnosticreport
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchdiagnosticreport
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletediagnosticreport
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: DiagnosticReport-rid-_history
+      path: /DiagnosticReport/{rid}/_history
+      operations:
+      - name: histinstdiagnosticreport
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: DiagnosticReport-rid-_history-hid
+      path: /DiagnosticReport/{rid}/_history/{hid}
+      operations:
+      - name: vreaddiagnosticreport
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-diagnosticreport-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — DiagnosticReport. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/diagnosticreport
+      name: diagnosticreport
+      description: REST surface for DiagnosticReport.
+      operations:
+      - method: GET
+        name: searchdiagnosticreport
+        description: Fast Healthcare Interoperability Resources Search all resources of type DiagnosticReport based on a set
+          of criteria
+        call: fhir-diagnosticreport.searchdiagnosticreport
+        with:
+          category: rest.category
+          code: rest.code
+          date: rest.date
+          _lastUpdated: rest._lastUpdated
+          patient: rest.patient
+          status: rest.status
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: creatediagnosticreport
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-diagnosticreport.creatediagnosticreport
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/diagnosticreport/history
+      name: diagnosticreport-history
+      description: REST surface for DiagnosticReport-_history.
+      operations:
+      - method: GET
+        name: histtypediagnosticreport
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-diagnosticreport.histtypediagnosticreport
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/diagnosticreport/{rid}
+      name: diagnosticreport-rid
+      description: REST surface for DiagnosticReport-rid.
+      operations:
+      - method: GET
+        name: readdiagnosticreport
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-diagnosticreport.readdiagnosticreport
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatediagnosticreport
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-diagnosticreport.updatediagnosticreport
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchdiagnosticreport
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-diagnosticreport.patchdiagnosticreport
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletediagnosticreport
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-diagnosticreport.deletediagnosticreport
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/diagnosticreport/{rid}/history
+      name: diagnosticreport-rid-history
+      description: REST surface for DiagnosticReport-rid-_history.
+      operations:
+      - method: GET
+        name: histinstdiagnosticreport
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-diagnosticreport.histinstdiagnosticreport
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/diagnosticreport/{rid}/history/{hid}
+      name: diagnosticreport-rid-history-hid
+      description: REST surface for DiagnosticReport-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreaddiagnosticreport
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-diagnosticreport.vreaddiagnosticreport
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-diagnosticreport-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — DiagnosticReport. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type DiagnosticReport based on a set
+        of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-diagnosticreport.searchdiagnosticreport
+      with:
+        category: tools.category
+        code: tools.code
+        date: tools.date
+        _lastUpdated: tools._lastUpdated
+        patient: tools.patient
+        status: tools.status
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-diagnosticreport.creatediagnosticreport
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-diagnosticreport.histtypediagnosticreport
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-diagnosticreport.readdiagnosticreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-diagnosticreport.updatediagnosticreport
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-diagnosticreport.patchdiagnosticreport
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-diagnosticreport.deletediagnosticreport
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-diagnosticreport.histinstdiagnosticreport
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-diagnosticreport.vreaddiagnosticreport
+      outputParameters:
+      - type: object
+        mapping: $.

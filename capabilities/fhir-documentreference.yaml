@@ -1,0 +1,426 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — DocumentReference
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — DocumentReference. 9 operations. Lead operation: Fast
+    Healthcare Interoperability Resources Search all resources of type DocumentReference based on a set of criteria. Self-contained
+    Naftiko capability covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - DocumentReference
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-documentreference
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — DocumentReference business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: DocumentReference
+      path: /DocumentReference
+      operations:
+      - name: searchdocumentreference
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type DocumentReference based on a
+          set of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _id
+          in: query
+          type: string
+          description: '**Logical id of this artifact**  '
+        - name: category
+          in: query
+          type: string
+          description: '**Categorization of document**  '
+        - name: date
+          in: query
+          type: string
+          description: '**When this document reference was created**  '
+        - name: patient
+          in: query
+          type: string
+          description: '**Who/what is the subject of the document**  '
+        - name: period
+          in: query
+          type: string
+          description: '**Time of service that is being documented**  '
+        - name: status
+          in: query
+          type: string
+          description: '**current | superseded | entered-in-error**  '
+        - name: type
+          in: query
+          type: string
+          description: '**Kind of document (LOINC if possible)**  '
+      - name: createdocumentreference
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: DocumentReference-_history
+      path: /DocumentReference/_history
+      operations:
+      - name: histtypedocumentreference
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: DocumentReference-rid
+      path: /DocumentReference/{rid}
+      operations:
+      - name: readdocumentreference
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedocumentreference
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchdocumentreference
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedocumentreference
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: DocumentReference-rid-_history
+      path: /DocumentReference/{rid}/_history
+      operations:
+      - name: histinstdocumentreference
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: DocumentReference-rid-_history-hid
+      path: /DocumentReference/{rid}/_history/{hid}
+      operations:
+      - name: vreaddocumentreference
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-documentreference-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — DocumentReference. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/documentreference
+      name: documentreference
+      description: REST surface for DocumentReference.
+      operations:
+      - method: GET
+        name: searchdocumentreference
+        description: Fast Healthcare Interoperability Resources Search all resources of type DocumentReference based on a
+          set of criteria
+        call: fhir-documentreference.searchdocumentreference
+        with:
+          _id: rest._id
+          category: rest.category
+          date: rest.date
+          patient: rest.patient
+          period: rest.period
+          status: rest.status
+          type: rest.type
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdocumentreference
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-documentreference.createdocumentreference
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documentreference/history
+      name: documentreference-history
+      description: REST surface for DocumentReference-_history.
+      operations:
+      - method: GET
+        name: histtypedocumentreference
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-documentreference.histtypedocumentreference
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documentreference/{rid}
+      name: documentreference-rid
+      description: REST surface for DocumentReference-rid.
+      operations:
+      - method: GET
+        name: readdocumentreference
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-documentreference.readdocumentreference
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatedocumentreference
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-documentreference.updatedocumentreference
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchdocumentreference
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-documentreference.patchdocumentreference
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedocumentreference
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-documentreference.deletedocumentreference
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documentreference/{rid}/history
+      name: documentreference-rid-history
+      description: REST surface for DocumentReference-rid-_history.
+      operations:
+      - method: GET
+        name: histinstdocumentreference
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-documentreference.histinstdocumentreference
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/documentreference/{rid}/history/{hid}
+      name: documentreference-rid-history-hid
+      description: REST surface for DocumentReference-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreaddocumentreference
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-documentreference.vreaddocumentreference
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-documentreference-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — DocumentReference. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type DocumentReference based on a set
+        of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-documentreference.searchdocumentreference
+      with:
+        _id: tools._id
+        category: tools.category
+        date: tools.date
+        patient: tools.patient
+        period: tools.period
+        status: tools.status
+        type: tools.type
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-documentreference.createdocumentreference
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-documentreference.histtypedocumentreference
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-documentreference.readdocumentreference
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-documentreference.updatedocumentreference
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-documentreference.patchdocumentreference
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-documentreference.deletedocumentreference
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-documentreference.histinstdocumentreference
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-documentreference.vreaddocumentreference
+      outputParameters:
+      - type: object
+        mapping: $.

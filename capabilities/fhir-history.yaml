@@ -1,0 +1,92 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) —  History
+  description: 'Fast Healthcare Interoperability Resources (FHIR) —  History. 1 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Read the past states of all resources. Self-contained Naftiko capability covering one Fhir
+    business surface.'
+  tags:
+  - Fhir
+  - ' History'
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-history
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) —  History business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: _history
+      path: /_history
+      operations:
+      - name: histall
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of all resources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+  exposes:
+  - type: rest
+    namespace: fhir-history-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) —  History. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/history
+      name: history
+      description: REST surface for _history.
+      operations:
+      - method: GET
+        name: histall
+        description: Fast Healthcare Interoperability Resources Read the past states of all resources
+        call: fhir-history.histall
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-history-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) —  History. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of all resources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-history.histall
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.

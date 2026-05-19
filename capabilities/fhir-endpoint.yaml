@@ -1,0 +1,378 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — Endpoint
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — Endpoint. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type Endpoint based on a set of criteria. Self-contained Naftiko capability
+    covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - Endpoint
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-endpoint
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — Endpoint business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: Endpoint
+      path: /Endpoint
+      operations:
+      - name: searchendpoint
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Endpoint based on a set of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createendpoint
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: Endpoint-_history
+      path: /Endpoint/_history
+      operations:
+      - name: histtypeendpoint
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Endpoint-rid
+      path: /Endpoint/{rid}
+      operations:
+      - name: readendpoint
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateendpoint
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchendpoint
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteendpoint
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Endpoint-rid-_history
+      path: /Endpoint/{rid}/_history
+      operations:
+      - name: histinstendpoint
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Endpoint-rid-_history-hid
+      path: /Endpoint/{rid}/_history/{hid}
+      operations:
+      - name: vreadendpoint
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-endpoint-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — Endpoint. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/endpoint
+      name: endpoint
+      description: REST surface for Endpoint.
+      operations:
+      - method: GET
+        name: searchendpoint
+        description: Fast Healthcare Interoperability Resources Search all resources of type Endpoint based on a set of criteria
+        call: fhir-endpoint.searchendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createendpoint
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-endpoint.createendpoint
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/endpoint/history
+      name: endpoint-history
+      description: REST surface for Endpoint-_history.
+      operations:
+      - method: GET
+        name: histtypeendpoint
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-endpoint.histtypeendpoint
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/endpoint/{rid}
+      name: endpoint-rid
+      description: REST surface for Endpoint-rid.
+      operations:
+      - method: GET
+        name: readendpoint
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-endpoint.readendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateendpoint
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-endpoint.updateendpoint
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchendpoint
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-endpoint.patchendpoint
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteendpoint
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-endpoint.deleteendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/endpoint/{rid}/history
+      name: endpoint-rid-history
+      description: REST surface for Endpoint-rid-_history.
+      operations:
+      - method: GET
+        name: histinstendpoint
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-endpoint.histinstendpoint
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/endpoint/{rid}/history/{hid}
+      name: endpoint-rid-history-hid
+      description: REST surface for Endpoint-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadendpoint
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-endpoint.vreadendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-endpoint-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — Endpoint. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type Endpoint based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-endpoint.searchendpoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-endpoint.createendpoint
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-endpoint.histtypeendpoint
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-endpoint.readendpoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-endpoint.updateendpoint
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-endpoint.patchendpoint
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-endpoint.deleteendpoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-endpoint.histinstendpoint
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-endpoint.vreadendpoint
+      outputParameters:
+      - type: object
+        mapping: $.

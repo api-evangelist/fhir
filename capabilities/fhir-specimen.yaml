@@ -1,0 +1,393 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — Specimen
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — Specimen. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type Specimen based on a set of criteria. Self-contained Naftiko capability
+    covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - Specimen
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-specimen
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — Specimen business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: Specimen
+      path: /Specimen
+      operations:
+      - name: searchspecimen
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Specimen based on a set of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _id
+          in: query
+          type: string
+          description: '**Logical id of this artifact**  '
+        - name: patient
+          in: query
+          type: string
+          description: '**The patient the specimen comes from**  '
+      - name: createspecimen
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: Specimen-_history
+      path: /Specimen/_history
+      operations:
+      - name: histtypespecimen
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Specimen-rid
+      path: /Specimen/{rid}
+      operations:
+      - name: readspecimen
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatespecimen
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchspecimen
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletespecimen
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Specimen-rid-_history
+      path: /Specimen/{rid}/_history
+      operations:
+      - name: histinstspecimen
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Specimen-rid-_history-hid
+      path: /Specimen/{rid}/_history/{hid}
+      operations:
+      - name: vreadspecimen
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-specimen-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — Specimen. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/specimen
+      name: specimen
+      description: REST surface for Specimen.
+      operations:
+      - method: GET
+        name: searchspecimen
+        description: Fast Healthcare Interoperability Resources Search all resources of type Specimen based on a set of criteria
+        call: fhir-specimen.searchspecimen
+        with:
+          _id: rest._id
+          patient: rest.patient
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createspecimen
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-specimen.createspecimen
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/specimen/history
+      name: specimen-history
+      description: REST surface for Specimen-_history.
+      operations:
+      - method: GET
+        name: histtypespecimen
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-specimen.histtypespecimen
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/specimen/{rid}
+      name: specimen-rid
+      description: REST surface for Specimen-rid.
+      operations:
+      - method: GET
+        name: readspecimen
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-specimen.readspecimen
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatespecimen
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-specimen.updatespecimen
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchspecimen
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-specimen.patchspecimen
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletespecimen
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-specimen.deletespecimen
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/specimen/{rid}/history
+      name: specimen-rid-history
+      description: REST surface for Specimen-rid-_history.
+      operations:
+      - method: GET
+        name: histinstspecimen
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-specimen.histinstspecimen
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/specimen/{rid}/history/{hid}
+      name: specimen-rid-history-hid
+      description: REST surface for Specimen-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadspecimen
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-specimen.vreadspecimen
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-specimen-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — Specimen. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type Specimen based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-specimen.searchspecimen
+      with:
+        _id: tools._id
+        patient: tools.patient
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-specimen.createspecimen
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-specimen.histtypespecimen
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-specimen.readspecimen
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-specimen.updatespecimen
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-specimen.patchspecimen
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-specimen.deletespecimen
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-specimen.histinstspecimen
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-specimen.vreadspecimen
+      outputParameters:
+      - type: object
+        mapping: $.

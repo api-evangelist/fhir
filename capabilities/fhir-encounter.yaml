@@ -1,0 +1,441 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — Encounter
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — Encounter. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type Encounter based on a set of criteria. Self-contained Naftiko capability
+    covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - Encounter
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-encounter
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — Encounter business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: Encounter
+      path: /Encounter
+      operations:
+      - name: searchencounter
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Encounter based on a set of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _id
+          in: query
+          type: string
+          description: '**Logical id of this artifact**  '
+        - name: class
+          in: query
+          type: string
+          description: '**Classification of patient encounter**  '
+        - name: date
+          in: query
+          type: string
+          description: '**A date within the period the Encounter lasted**  '
+        - name: _lastUpdated
+          in: query
+          type: string
+          description: '**When the resource version last changed**  '
+        - name: discharge-disposition
+          in: query
+          type: string
+          description: Returns encounters with an discharge-disposition matching the specified code.
+        - name: identifier
+          in: query
+          type: string
+          description: '**Identifier(s) by which this encounter is known**  '
+        - name: location
+          in: query
+          type: string
+          description: '**Location the encounter takes place**  '
+        - name: patient
+          in: query
+          type: string
+          description: '**The patient or group present at the encounter**  '
+        - name: status
+          in: query
+          type: string
+          description: '**planned | arrived | triaged | in-progress | onleave | finished | cancelled +**  '
+        - name: type
+          in: query
+          type: string
+          description: '**Specific type of encounter**  '
+      - name: createencounter
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: Encounter-_history
+      path: /Encounter/_history
+      operations:
+      - name: histtypeencounter
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Encounter-rid
+      path: /Encounter/{rid}
+      operations:
+      - name: readencounter
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateencounter
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchencounter
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteencounter
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Encounter-rid-_history
+      path: /Encounter/{rid}/_history
+      operations:
+      - name: histinstencounter
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Encounter-rid-_history-hid
+      path: /Encounter/{rid}/_history/{hid}
+      operations:
+      - name: vreadencounter
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-encounter-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — Encounter. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/encounter
+      name: encounter
+      description: REST surface for Encounter.
+      operations:
+      - method: GET
+        name: searchencounter
+        description: Fast Healthcare Interoperability Resources Search all resources of type Encounter based on a set of criteria
+        call: fhir-encounter.searchencounter
+        with:
+          _id: rest._id
+          class: rest.class
+          date: rest.date
+          _lastUpdated: rest._lastUpdated
+          discharge-disposition: rest.discharge-disposition
+          identifier: rest.identifier
+          location: rest.location
+          patient: rest.patient
+          status: rest.status
+          type: rest.type
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createencounter
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-encounter.createencounter
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/encounter/history
+      name: encounter-history
+      description: REST surface for Encounter-_history.
+      operations:
+      - method: GET
+        name: histtypeencounter
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-encounter.histtypeencounter
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/encounter/{rid}
+      name: encounter-rid
+      description: REST surface for Encounter-rid.
+      operations:
+      - method: GET
+        name: readencounter
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-encounter.readencounter
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateencounter
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-encounter.updateencounter
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchencounter
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-encounter.patchencounter
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteencounter
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-encounter.deleteencounter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/encounter/{rid}/history
+      name: encounter-rid-history
+      description: REST surface for Encounter-rid-_history.
+      operations:
+      - method: GET
+        name: histinstencounter
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-encounter.histinstencounter
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/encounter/{rid}/history/{hid}
+      name: encounter-rid-history-hid
+      description: REST surface for Encounter-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadencounter
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-encounter.vreadencounter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-encounter-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — Encounter. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type Encounter based on a set of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-encounter.searchencounter
+      with:
+        _id: tools._id
+        class: tools.class
+        date: tools.date
+        _lastUpdated: tools._lastUpdated
+        discharge-disposition: tools.discharge-disposition
+        identifier: tools.identifier
+        location: tools.location
+        patient: tools.patient
+        status: tools.status
+        type: tools.type
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-encounter.createencounter
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-encounter.histtypeencounter
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-encounter.readencounter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-encounter.updateencounter
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-encounter.patchencounter
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-encounter.deleteencounter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-encounter.histinstencounter
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-encounter.vreadencounter
+      outputParameters:
+      - type: object
+        mapping: $.

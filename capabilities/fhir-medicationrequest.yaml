@@ -1,0 +1,414 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — MedicationRequest
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — MedicationRequest. 9 operations. Lead operation: Fast
+    Healthcare Interoperability Resources Search all resources of type MedicationRequest based on a set of criteria. Self-contained
+    Naftiko capability covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - MedicationRequest
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-medicationrequest
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — MedicationRequest business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: MedicationRequest
+      path: /MedicationRequest
+      operations:
+      - name: searchmedicationrequest
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type MedicationRequest based on a
+          set of criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: authoredon
+          in: query
+          type: string
+          description: '**Return prescriptions written on this date**  '
+        - name: encounter
+          in: query
+          type: string
+          description: '**Return prescriptions with this encounter identifier**  '
+        - name: intent
+          in: query
+          type: string
+          description: '**Returns prescriptions with different intents**  '
+        - name: patient
+          in: query
+          type: string
+          description: '**Returns prescriptions for a specific patient**  '
+        - name: status
+          in: query
+          type: string
+          description: '**Status of the prescription**  '
+      - name: createmedicationrequest
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: MedicationRequest-_history
+      path: /MedicationRequest/_history
+      operations:
+      - name: histtypemedicationrequest
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: MedicationRequest-rid
+      path: /MedicationRequest/{rid}
+      operations:
+      - name: readmedicationrequest
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatemedicationrequest
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchmedicationrequest
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemedicationrequest
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: MedicationRequest-rid-_history
+      path: /MedicationRequest/{rid}/_history
+      operations:
+      - name: histinstmedicationrequest
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: MedicationRequest-rid-_history-hid
+      path: /MedicationRequest/{rid}/_history/{hid}
+      operations:
+      - name: vreadmedicationrequest
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-medicationrequest-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — MedicationRequest. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/medicationrequest
+      name: medicationrequest
+      description: REST surface for MedicationRequest.
+      operations:
+      - method: GET
+        name: searchmedicationrequest
+        description: Fast Healthcare Interoperability Resources Search all resources of type MedicationRequest based on a
+          set of criteria
+        call: fhir-medicationrequest.searchmedicationrequest
+        with:
+          authoredon: rest.authoredon
+          encounter: rest.encounter
+          intent: rest.intent
+          patient: rest.patient
+          status: rest.status
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createmedicationrequest
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-medicationrequest.createmedicationrequest
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/medicationrequest/history
+      name: medicationrequest-history
+      description: REST surface for MedicationRequest-_history.
+      operations:
+      - method: GET
+        name: histtypemedicationrequest
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-medicationrequest.histtypemedicationrequest
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/medicationrequest/{rid}
+      name: medicationrequest-rid
+      description: REST surface for MedicationRequest-rid.
+      operations:
+      - method: GET
+        name: readmedicationrequest
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-medicationrequest.readmedicationrequest
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatemedicationrequest
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-medicationrequest.updatemedicationrequest
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchmedicationrequest
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-medicationrequest.patchmedicationrequest
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemedicationrequest
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-medicationrequest.deletemedicationrequest
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/medicationrequest/{rid}/history
+      name: medicationrequest-rid-history
+      description: REST surface for MedicationRequest-rid-_history.
+      operations:
+      - method: GET
+        name: histinstmedicationrequest
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-medicationrequest.histinstmedicationrequest
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/medicationrequest/{rid}/history/{hid}
+      name: medicationrequest-rid-history-hid
+      description: REST surface for MedicationRequest-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadmedicationrequest
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-medicationrequest.vreadmedicationrequest
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-medicationrequest-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — MedicationRequest. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type MedicationRequest based on a set
+        of criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-medicationrequest.searchmedicationrequest
+      with:
+        authoredon: tools.authoredon
+        encounter: tools.encounter
+        intent: tools.intent
+        patient: tools.patient
+        status: tools.status
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-medicationrequest.createmedicationrequest
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-medicationrequest.histtypemedicationrequest
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-medicationrequest.readmedicationrequest
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-medicationrequest.updatemedicationrequest
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-medicationrequest.patchmedicationrequest
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-medicationrequest.deletemedicationrequest
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-medicationrequest.histinstmedicationrequest
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-medicationrequest.vreadmedicationrequest
+      outputParameters:
+      - type: object
+        mapping: $.

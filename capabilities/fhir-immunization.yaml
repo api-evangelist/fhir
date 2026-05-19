@@ -1,0 +1,402 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fast Healthcare Interoperability Resources (FHIR) — Immunization
+  description: 'Fast Healthcare Interoperability Resources (FHIR) — Immunization. 9 operations. Lead operation: Fast Healthcare
+    Interoperability Resources Search all resources of type Immunization based on a set of criteria. Self-contained Naftiko
+    capability covering one Fhir business surface.'
+  tags:
+  - Fhir
+  - Immunization
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FHIR_API_KEY: FHIR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fhir-immunization
+    baseUri: ''
+    description: Fast Healthcare Interoperability Resources (FHIR) — Immunization business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: Immunization
+      path: /Immunization
+      operations:
+      - name: searchimmunization
+        method: GET
+        description: Fast Healthcare Interoperability Resources Search all resources of type Immunization based on a set of
+          criteria
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: date
+          in: query
+          type: string
+          description: '**Vaccination  (non)-Administration Date**  '
+        - name: patient
+          in: query
+          type: string
+          description: '**The patient for the vaccination record**  '
+        - name: status
+          in: query
+          type: string
+          description: '**Immunization event status**  '
+      - name: createimmunization
+        method: POST
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: Immunization-_history
+      path: /Immunization/_history
+      operations:
+      - name: histtypeimmunization
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Immunization-rid
+      path: /Immunization/{rid}
+      operations:
+      - name: readimmunization
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateimmunization
+        method: PUT
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: patchimmunization
+        method: PATCH
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteimmunization
+        method: DELETE
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Immunization-rid-_history
+      path: /Immunization/{rid}/_history
+      operations:
+      - name: histinstimmunization
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: _since
+          in: query
+          type: string
+          description: Only include resource versions that were created at or after the given instant in time
+        - name: _at
+          in: query
+          type: string
+          description: Only include resource versions that were current at some point during the time period specified in
+            the date time value (see Search notes on date searching)
+        - name: _list
+          in: query
+          type: string
+          description: Only include resource versions that are referenced in the specified list (current list references are
+            allowed)
+    - name: Immunization-rid-_history-hid
+      path: /Immunization/{rid}/_history/{hid}
+      operations:
+      - name: vreadimmunization
+        method: GET
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fhir-immunization-rest
+    port: 8080
+    description: REST adapter for Fast Healthcare Interoperability Resources (FHIR) — Immunization. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/immunization
+      name: immunization
+      description: REST surface for Immunization.
+      operations:
+      - method: GET
+        name: searchimmunization
+        description: Fast Healthcare Interoperability Resources Search all resources of type Immunization based on a set of
+          criteria
+        call: fhir-immunization.searchimmunization
+        with:
+          date: rest.date
+          patient: rest.patient
+          status: rest.status
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createimmunization
+        description: Fast Healthcare Interoperability Resources Create a new resource
+        call: fhir-immunization.createimmunization
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immunization/history
+      name: immunization-history
+      description: REST surface for Immunization-_history.
+      operations:
+      - method: GET
+        name: histtypeimmunization
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-immunization.histtypeimmunization
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immunization/{rid}
+      name: immunization-rid
+      description: REST surface for Immunization-rid.
+      operations:
+      - method: GET
+        name: readimmunization
+        description: Fast Healthcare Interoperability Resources Read the current state of the resource
+        call: fhir-immunization.readimmunization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateimmunization
+        description: Fast Healthcare Interoperability Resources Update the current state of the resource
+        call: fhir-immunization.updateimmunization
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchimmunization
+        description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+          - a series of change commands
+        call: fhir-immunization.patchimmunization
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteimmunization
+        description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search
+          etc)
+        call: fhir-immunization.deleteimmunization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immunization/{rid}/history
+      name: immunization-rid-history
+      description: REST surface for Immunization-rid-_history.
+      operations:
+      - method: GET
+        name: histinstimmunization
+        description: Fast Healthcare Interoperability Resources Read the past states of the resource
+        call: fhir-immunization.histinstimmunization
+        with:
+          _since: rest._since
+          _at: rest._at
+          _list: rest._list
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immunization/{rid}/history/{hid}
+      name: immunization-rid-history-hid
+      description: REST surface for Immunization-rid-_history-hid.
+      operations:
+      - method: GET
+        name: vreadimmunization
+        description: Fast Healthcare Interoperability Resources Read a past state of the resource
+        call: fhir-immunization.vreadimmunization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fhir-immunization-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fast Healthcare Interoperability Resources (FHIR) — Immunization. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: fast-healthcare-interoperability-resources-search
+      description: Fast Healthcare Interoperability Resources Search all resources of type Immunization based on a set of
+        criteria
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-immunization.searchimmunization
+      with:
+        date: tools.date
+        patient: tools.patient
+        status: tools.status
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-create
+      description: Fast Healthcare Interoperability Resources Create a new resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fhir-immunization.createimmunization
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-immunization.histtypeimmunization
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-2
+      description: Fast Healthcare Interoperability Resources Read the current state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-immunization.readimmunization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-update
+      description: Fast Healthcare Interoperability Resources Update the current state of the resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-immunization.updateimmunization
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-change
+      description: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch
+        - a series of change commands
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fhir-immunization.patchimmunization
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-delete
+      description: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fhir-immunization.deleteimmunization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-3
+      description: Fast Healthcare Interoperability Resources Read the past states of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-immunization.histinstimmunization
+      with:
+        _since: tools._since
+        _at: tools._at
+        _list: tools._list
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fast-healthcare-interoperability-resources-read-4
+      description: Fast Healthcare Interoperability Resources Read a past state of the resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fhir-immunization.vreadimmunization
+      outputParameters:
+      - type: object
+        mapping: $.
