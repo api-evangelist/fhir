@@ -6,7 +6,7 @@ description: FHIR (Fast Healthcare Interoperability Resources) is a platform spe
 type: Index
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Healthcare
   - Standards
@@ -23,7 +23,7 @@ apis:
       Patient Selection 170.315(g)(7) and Application Access - Data Category Request 170.315(g)(8) requirements as well as USCDI
       Version 4 (July 2023).
     humanURL: https://www.hl7.org/fhir/
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     tags:
     - Healthcare
     - Standards
