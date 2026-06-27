@@ -35,71 +35,71 @@ apis:
       url: openapi/fhir-openapi-original.yml
     - type: PostmanCollection
       url: https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-history.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-general.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-allergyintolerance.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-careplan.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-careteam.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-condition.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-coverage.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-device.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-diagnosticreport.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-documentreference.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-encounter.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-endpoint.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-goal.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-healthcareservice.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-immunization.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-location.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-media.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-medication.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-medicationdispense.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-medicationrequest.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-metadata.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-observation.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-organization.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-patient.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-practitioner.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-practitionerrole.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-procedure.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-provenance.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-questionnaire.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-questionnaireresponse.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-relatedperson.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-servicerequest.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/fhir-specimen.yaml
 common:
   - type: GitHubOrganization
