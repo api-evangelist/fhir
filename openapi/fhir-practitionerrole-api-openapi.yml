@@ -1,0 +1,471 @@
+openapi: 3.0.2
+info:
+  title: Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance PractitionerRole API
+  description: This Section describes the expected capabilities of the US Core Server actor which is responsible for providing responses to the queries submitted by the US Core Requestors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by US Core Servers are defined. Systems implementing this capability statement should meet the ONC 2015 Common Clinical Data Set (CCDS) access requirement for Patient Selection 170.315(g)(7) and Application Access - Data Category Request 170.315(g)(8) and the ONC [U.S. Core Data for Interoperability (USCDI) Version 4 July 2023](https://www.healthit.gov/sites/isa/files/2023-07/Final-USCDI-Version-4-July-2023-Final.pdf).
+  license:
+    name: Creative Commons Zero v1.0 Universal
+    url: http://spdx.org/licenses/CC0-1.0.html
+  version: 7.0.0
+  contact:
+    name: HL7 International / Cross-Group Projects
+    email: cgp@lists.HL7.org
+    url: http://www.hl7.org/Special/committees/cgp
+tags:
+- name: PractitionerRole
+paths:
+  /PractitionerRole:
+    summary: Manager for resources of type PractitionerRole
+    description: 'The Manager for resources of type PractitionerRole: provides services to manage the collection of all the PractitionerRole instances'
+    get:
+      summary: Fast Healthcare Interoperability Resources Search all resources of type PractitionerRole based on a set of criteria
+      operationId: searchPractitionerRole
+      responses:
+        '200':
+          description: the resource being returned
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Bundle
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/Bundle.xsd
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/pretty'
+      - $ref: '#/components/parameters/summary'
+      - $ref: '#/components/parameters/elements'
+      - name: practitioner
+        in: query
+        description: "**Practitioner that is able to provide the defined services for the organization**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+        schema:
+          type: string
+      - name: specialty
+        in: query
+        description: "**The practitioner has this specialty at an organization**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+        schema:
+          type: string
+      tags:
+      - PractitionerRole
+    post:
+      summary: Fast Healthcare Interoperability Resources Create a new resource
+      operationId: createPractitionerRole
+      requestBody:
+        description: The new state of the resource
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+          application/fhir+xml:
+            schema:
+              $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+      responses:
+        '200':
+          description: the resource being returned after being updated
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/summary'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/pretty'
+      - $ref: '#/components/parameters/elements'
+      tags:
+      - PractitionerRole
+  /PractitionerRole/{rid}:
+    summary: Read/Write/etc resource instance of type PractitionerRole
+    description: Access to services to manage the state of a single resource of type PractitionerRole
+    get:
+      summary: Fast Healthcare Interoperability Resources Read the current state of the resource
+      operationId: readPractitionerRole
+      responses:
+        '200':
+          description: the resource being returned
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/rid'
+      - $ref: '#/components/parameters/summary'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/pretty'
+      - $ref: '#/components/parameters/elements'
+      tags:
+      - PractitionerRole
+    put:
+      summary: Fast Healthcare Interoperability Resources Update the current state of the resource
+      operationId: updatePractitionerRole
+      requestBody:
+        description: The new state of the resource
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+          application/fhir+xml:
+            schema:
+              $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+      responses:
+        '200':
+          description: the resource being returned after being updated
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/rid'
+      - $ref: '#/components/parameters/summary'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/pretty'
+      - $ref: '#/components/parameters/elements'
+      tags:
+      - PractitionerRole
+    patch:
+      summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
+      operationId: patchPractitionerRole
+      requestBody:
+        description: The new state of the resource
+        required: true
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+          application/fhir+json:
+            schema:
+              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Parameters
+          application/xml-patch+xml:
+            schema:
+              $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+          application/fhir+xml:
+            schema:
+              $ref: https://hl7.org/fhir/R4/Parameters.xsd
+      responses:
+        '200':
+          description: the resource being returned after being patched
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/rid'
+      - $ref: '#/components/parameters/summary'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/pretty'
+      - $ref: '#/components/parameters/elements'
+      tags:
+      - PractitionerRole
+    delete:
+      summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
+      operationId: deletePractitionerRole
+      responses:
+        '204':
+          description: If the resource is deleted - no content is returned
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag
+              schema:
+                type: string
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/rid'
+      tags:
+      - PractitionerRole
+  /PractitionerRole/{rid}/_history:
+    summary: Read past versions of resource instance of type PractitionerRole
+    description: Access to previous versions of a single resource of type PractitionerRole
+    get:
+      summary: Fast Healthcare Interoperability Resources Read the past states of the resource
+      operationId: histinstPractitionerRole
+      responses:
+        '200':
+          description: the resources being returned
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Bundle
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/Bundle.xsd
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/rid'
+      - $ref: '#/components/parameters/summary'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/pretty'
+      - $ref: '#/components/parameters/elements'
+      - $ref: '#/components/parameters/count'
+      - name: _since
+        in: query
+        description: Only include resource versions that were created at or after the given instant in time
+        schema:
+          type: string
+          pattern: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?
+      - name: _at
+        in: query
+        description: Only include resource versions that were current at some point during the time period specified in the date time value (see Search notes on date searching)
+        schema:
+          type: string
+          pattern: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?
+      - name: _list
+        in: query
+        description: Only include resource versions that are referenced in the specified list (current list references are allowed)
+        schema:
+          type: string
+      tags:
+      - PractitionerRole
+  /PractitionerRole/{rid}/_history/{hid}:
+    summary: Read a past version of resource instance of type PractitionerRole
+    description: Access a to specified previous version of a single resource of type PractitionerRole
+    get:
+      summary: Fast Healthcare Interoperability Resources Read a past state of the resource
+      operationId: vreadPractitionerRole
+      responses:
+        '200':
+          description: the resource being returned
+          headers:
+            ETag:
+              description: Version from Resource.meta.version as a weak ETag for that version
+              schema:
+                type: string
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/rid'
+      - $ref: '#/components/parameters/hid'
+      - $ref: '#/components/parameters/summary'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/pretty'
+      - $ref: '#/components/parameters/elements'
+      tags:
+      - PractitionerRole
+  /PractitionerRole/_history:
+    summary: Read past versions of resources of type PractitionerRole
+    description: Access to previous versions of resourcez of type PractitionerRole
+    get:
+      summary: Fast Healthcare Interoperability Resources Read the past states of the resource
+      operationId: histtypePractitionerRole
+      responses:
+        '200':
+          description: the resources being returned
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Bundle
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/Bundle.xsd
+        default:
+          description: Error, with details
+          content:
+            application/fhir+json:
+              schema:
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/OperationOutcome
+            application/fhir+xml:
+              schema:
+                $ref: https://hl7.org/fhir/R4/OperationOutcome.xsd
+      parameters:
+      - $ref: '#/components/parameters/summary'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/pretty'
+      - $ref: '#/components/parameters/elements'
+      - $ref: '#/components/parameters/count'
+      - name: _since
+        in: query
+        description: Only include resource versions that were created at or after the given instant in time
+        schema:
+          type: string
+          pattern: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?
+      - name: _at
+        in: query
+        description: Only include resource versions that were current at some point during the time period specified in the date time value (see Search notes on date searching)
+        schema:
+          type: string
+          pattern: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?
+      - name: _list
+        in: query
+        description: Only include resource versions that are referenced in the specified list (current list references are allowed)
+        schema:
+          type: string
+      tags:
+      - PractitionerRole
+components:
+  parameters:
+    pretty:
+      name: _pretty
+      in: query
+      description: Ask for a pretty printed response for human convenience
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: boolean
+    format:
+      name: _format
+      in: query
+      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: string
+        format: mime-type
+    rid:
+      name: rid
+      in: path
+      description: id of the resource (=Resource.id)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+    count:
+      name: _count
+      in: query
+      description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
+      schema:
+        type: number
+    hid:
+      name: hid
+      in: path
+      description: id of the history entry (=Resource.meta.versionId)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+    summary:
+      name: _summary
+      in: query
+      description: Requests the server to return a designated subset of the resource
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: string
+        enum:
+        - 'true'
+        - text
+        - data
+        - count
+        - 'false'
+    elements:
+      name: _elements
+      in: query
+      description: Requests the server to return a collection of elements from the resource
+      allowEmptyValue: true
+      style: form
+      explode: false
+      schema:
+        type: array
+        format: string
+        items:
+          format: string
+externalDocs:
+  url: http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server
+  description: FHIR CapabilityStatement
