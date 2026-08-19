@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance  History API",
+    "version": "7.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": " History",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Read the past states of all resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/_history",
+            "params": [
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              },
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more"
+              },
+              {
+                "name": "_since",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that were created at or after the given instant in time"
+              },
+              {
+                "name": "_at",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that were current at some point during the time period specified in the date time value (see Search notes on date searching)"
+              },
+              {
+                "name": "_list",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that are referenced in the specified list (current list references are allowed)"
+              }
+            ]
+          },
+          "docs": "Fast Healthcare Interoperability Resources Read the past states of all resources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

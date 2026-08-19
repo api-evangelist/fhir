@@ -1,0 +1,1846 @@
+{
+  "item": [
+    {
+      "id": "2490eaa9-f894-4654-8070-6594434dcafe",
+      "name": "Endpoint",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a81f2d9-e610-444b-b186-6b29f0942a44",
+          "name": "Fast Healthcare Interoperability Resources Search all resources of type Endpoint based on a set of criteria",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Search all resources of type Endpoint based on a set of criteria",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7cfc4573-7ea3-46c8-8dcf-102bdfc9d3be",
+              "name": "the resource being returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79003139-301f-436a-b508-d40350ddc116",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44ae8673-f48f-4414-9b91-c27141d20abd",
+          "name": "Fast Healthcare Interoperability Resources Create a new resource",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Create a new resource",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dadc8ec7-f97c-43f8-aec7-aab4af5c220b",
+              "name": "the resource being returned after being updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Version from Resource.meta.version as a weak ETag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2039f454-7e48-48dc-a1af-deae84799a6b",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f0beb4f-affc-4e4f-b667-3d6c7dcf9c59",
+          "name": "Fast Healthcare Interoperability Resources Read the current state of the resource",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Read the current state of the resource",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint",
+                ":rid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rid",
+                  "description": "(Required) id of the resource (=Resource.id)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b132979-cbda-49e9-9773-28fc97b284a6",
+              "name": "the resource being returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Version from Resource.meta.version as a weak ETag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6739e934-3239-4f95-b2c2-e043ff3ec899",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d4ebe31-e56a-453d-96b2-1daa4bda3ae6",
+          "name": "Fast Healthcare Interoperability Resources Update the current state of the resource",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Update the current state of the resource",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint",
+                ":rid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rid",
+                  "description": "(Required) id of the resource (=Resource.id)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4590d8f3-4d7e-436c-b60b-2f0fdc2a1653",
+              "name": "the resource being returned after being updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Version from Resource.meta.version as a weak ETag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1120359d-d2fc-4aa6-a936-8171353adb7f",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a23615eb-134c-474f-b02d-b320b5417645",
+          "name": "Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint",
+                ":rid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rid",
+                  "description": "(Required) id of the resource (=Resource.id)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json-patch+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4472a0d9-7012-4340-94cc-f61a81182423",
+              "name": "the resource being returned after being patched",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Version from Resource.meta.version as a weak ETag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94599b06-ef6c-4646-a7de-abfcee4c600d",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70d6f79d-d30b-49d9-97e9-7ba1ac9c3e21",
+          "name": "Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint",
+                ":rid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rid",
+                  "description": "(Required) id of the resource (=Resource.id)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b2d1a18-fef6-49f7-96e3-d845d0ac8aca",
+              "name": "If the resource is deleted - no content is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Version from Resource.meta.version as a weak ETag",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99ad1473-c039-4850-8187-514f2f69d27e",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f14e008-5604-447f-89c8-13ea7bbe6d8e",
+          "name": "Fast Healthcare Interoperability Resources Read the past states of the resource",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Read the past states of the resource",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint",
+                ":rid",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_count",
+                  "value": "<number>",
+                  "description": "The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more"
+                },
+                {
+                  "disabled": false,
+                  "key": "_since",
+                  "value": "<string>",
+                  "description": "Only include resource versions that were created at or after the given instant in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "_at",
+                  "value": "<string>",
+                  "description": "Only include resource versions that were current at some point during the time period specified in the date time value (see Search notes on date searching)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_list",
+                  "value": "<string>",
+                  "description": "Only include resource versions that are referenced in the specified list (current list references are allowed)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rid",
+                  "description": "(Required) id of the resource (=Resource.id)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26e0cd0e-b8f1-494c-82b2-505d7d63fd32",
+              "name": "the resources being returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid",
+                    "_history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    },
+                    {
+                      "key": "_count",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_at",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_list",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "491bab0d-d171-4d03-af01-42246c37f218",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid",
+                    "_history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    },
+                    {
+                      "key": "_count",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_at",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_list",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2502216-71c1-4161-962f-b9fd01e39f64",
+          "name": "Fast Healthcare Interoperability Resources Read a past state of the resource",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Read a past state of the resource",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint",
+                ":rid",
+                "_history",
+                ":hid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rid",
+                  "description": "(Required) id of the resource (=Resource.id)"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hid",
+                  "description": "(Required) id of the history entry (=Resource.meta.versionId)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d31fdc5-a61f-4a58-8f2d-1a602f657b71",
+              "name": "the resource being returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid",
+                    "_history",
+                    ":hid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hid",
+                      "description": "(Required) id of the history entry (=Resource.meta.versionId)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Version from Resource.meta.version as a weak ETag for that version",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a1651a7-eb41-4227-bf4b-bbaf9af4b9b2",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    ":rid",
+                    "_history",
+                    ":hid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rid",
+                      "description": "(Required) id of the resource (=Resource.id)"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hid",
+                      "description": "(Required) id of the history entry (=Resource.meta.versionId)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35a3862d-b97d-4d28-8fbb-37b75599b65b",
+          "name": "Fast Healthcare Interoperability Resources Read the past states of the resource",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Read the past states of the resource",
+            "description": {},
+            "url": {
+              "path": [
+                "Endpoint",
+                "_history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_count",
+                  "value": "<number>",
+                  "description": "The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more"
+                },
+                {
+                  "disabled": false,
+                  "key": "_since",
+                  "value": "<string>",
+                  "description": "Only include resource versions that were created at or after the given instant in time"
+                },
+                {
+                  "disabled": false,
+                  "key": "_at",
+                  "value": "<string>",
+                  "description": "Only include resource versions that were current at some point during the time period specified in the date time value (see Search notes on date searching)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_list",
+                  "value": "<string>",
+                  "description": "Only include resource versions that are referenced in the specified list (current list references are allowed)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac0cdcff-61ad-49a6-a746-e6f7e7f35cfd",
+              "name": "the resources being returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    "_history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    },
+                    {
+                      "key": "_count",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_at",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_list",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddbd9bcf-da50-40fe-a3bc-0d4822f8f9bc",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Endpoint",
+                    "_history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    },
+                    {
+                      "key": "_count",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "_since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_at",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_list",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "036560b0-e8c6-429e-9576-ed45b54556b9",
+    "name": "Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Endpoint API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This Section describes the expected capabilities of the US Core Server actor which is responsible for providing responses to the queries submitted by the US Core Requestors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by US Core Servers are defined. Systems implementing this capability statement should meet the ONC 2015 Common Clinical Data Set (CCDS) access requirement for Patient Selection 170.315(g)(7) and Application Access - Data Category Request 170.315(g)(8) and the ONC [U.S. Core Data for Interoperability (USCDI) Version 4 July 2023](https://www.healthit.gov/sites/isa/files/2023-07/Final-USCDI-Version-4-July-2023-Final.pdf).\n\nContact Support:\n Name: HL7 International / Cross-Group Projects\n Email: cgp@lists.HL7.org",
+      "type": "text/plain"
+    }
+  }
+}

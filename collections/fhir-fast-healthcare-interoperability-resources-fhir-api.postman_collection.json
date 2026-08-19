@@ -1,0 +1,355 @@
+{
+  "item": [
+    {
+      "id": "e597dac1-30cb-4ced-b54b-6c03e34cbac0",
+      "name": "Fast Healthcare Interoperability Resources (FHIR)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4bc74f8b-31ed-4ac2-a21d-52e9dff83818",
+          "name": "Fast Healthcare Interoperability Resources Search all resources of all types based on a set of criteria",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Search all resources of all types based on a set of criteria",
+            "description": {},
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                },
+                {
+                  "disabled": false,
+                  "key": "_summary",
+                  "value": "<string>",
+                  "description": "Requests the server to return a designated subset of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "_elements",
+                  "value": "",
+                  "description": "Requests the server to return a collection of elements from the resource"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d745d54-dcb0-4d65-acca-e8dddebeb814",
+              "name": "the resource being returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51420de3-c7f6-440a-90be-b4f8b77133a5",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_summary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_elements",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dbe3e28-46f7-4226-9e3e-35b681c2a9c3",
+          "name": "Fast Healthcare Interoperability Resources Batch or Transaction",
+          "request": {
+            "name": "Fast Healthcare Interoperability Resources Batch or Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<mime-type>",
+                  "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+                },
+                {
+                  "disabled": false,
+                  "key": "_pretty",
+                  "value": "<boolean>",
+                  "description": "Ask for a pretty printed response for human convenience"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b6c7bd36-86b0-46c6-b1c5-522404701501",
+              "name": "Batch or Transaction response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95e56706-4a65-4c95-83ab-373b3ee08568",
+              "name": "Error, with details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_format",
+                      "value": "<mime-type>"
+                    },
+                    {
+                      "key": "_pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0eed4b16-f49a-4794-b6aa-5e7d8fae9e5f",
+    "name": "Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Fast Healthcare Interoperability Resources (FHIR) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This Section describes the expected capabilities of the US Core Server actor which is responsible for providing responses to the queries submitted by the US Core Requestors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by US Core Servers are defined. Systems implementing this capability statement should meet the ONC 2015 Common Clinical Data Set (CCDS) access requirement for Patient Selection 170.315(g)(7) and Application Access - Data Category Request 170.315(g)(8) and the ONC [U.S. Core Data for Interoperability (USCDI) Version 4 July 2023](https://www.healthit.gov/sites/isa/files/2023-07/Final-USCDI-Version-4-July-2023-Final.pdf).\n\nContact Support:\n Name: HL7 International / Cross-Group Projects\n Email: cgp@lists.HL7.org",
+      "type": "text/plain"
+    }
+  }
+}

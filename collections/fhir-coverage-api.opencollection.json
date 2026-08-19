@@ -1,0 +1,435 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Coverage API",
+    "version": "7.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Coverage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Search all resources of type Coverage based on a set of criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Coverage",
+            "params": [
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "**Retrieve coverages for a patient**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+              }
+            ]
+          },
+          "docs": "Fast Healthcare Interoperability Resources Search all resources of type Coverage based on a set of criteria"
+        },
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Create a new resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/Coverage",
+            "params": [
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fast Healthcare Interoperability Resources Create a new resource"
+        },
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Read the current state of the resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Coverage/:rid",
+            "params": [
+              {
+                "name": "rid",
+                "value": "",
+                "type": "path",
+                "description": "id of the resource (=Resource.id)"
+              },
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              }
+            ]
+          },
+          "docs": "Fast Healthcare Interoperability Resources Read the current state of the resource"
+        },
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Update the current state of the resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Coverage/:rid",
+            "params": [
+              {
+                "name": "rid",
+                "value": "",
+                "type": "path",
+                "description": "id of the resource (=Resource.id)"
+              },
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fast Healthcare Interoperability Resources Update the current state of the resource"
+        },
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/Coverage/:rid",
+            "params": [
+              {
+                "name": "rid",
+                "value": "",
+                "type": "path",
+                "description": "id of the resource (=Resource.id)"
+              },
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands"
+        },
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/Coverage/:rid",
+            "params": [
+              {
+                "name": "rid",
+                "value": "",
+                "type": "path",
+                "description": "id of the resource (=Resource.id)"
+              }
+            ]
+          },
+          "docs": "Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)"
+        },
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Read the past states of the resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Coverage/:rid/_history",
+            "params": [
+              {
+                "name": "rid",
+                "value": "",
+                "type": "path",
+                "description": "id of the resource (=Resource.id)"
+              },
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              },
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more"
+              },
+              {
+                "name": "_since",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that were created at or after the given instant in time"
+              },
+              {
+                "name": "_at",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that were current at some point during the time period specified in the date time value (see Search notes on date searching)"
+              },
+              {
+                "name": "_list",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that are referenced in the specified list (current list references are allowed)"
+              }
+            ]
+          },
+          "docs": "Fast Healthcare Interoperability Resources Read the past states of the resource"
+        },
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Read a past state of the resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Coverage/:rid/_history/:hid",
+            "params": [
+              {
+                "name": "rid",
+                "value": "",
+                "type": "path",
+                "description": "id of the resource (=Resource.id)"
+              },
+              {
+                "name": "hid",
+                "value": "",
+                "type": "path",
+                "description": "id of the history entry (=Resource.meta.versionId)"
+              },
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              }
+            ]
+          },
+          "docs": "Fast Healthcare Interoperability Resources Read a past state of the resource"
+        },
+        {
+          "info": {
+            "name": "Fast Healthcare Interoperability Resources Read the past states of the resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Coverage/_history",
+            "params": [
+              {
+                "name": "_summary",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a designated subset of the resource"
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query",
+                "description": "Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)"
+              },
+              {
+                "name": "_pretty",
+                "value": "",
+                "type": "query",
+                "description": "Ask for a pretty printed response for human convenience"
+              },
+              {
+                "name": "_elements",
+                "value": "",
+                "type": "query",
+                "description": "Requests the server to return a collection of elements from the resource"
+              },
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more"
+              },
+              {
+                "name": "_since",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that were created at or after the given instant in time"
+              },
+              {
+                "name": "_at",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that were current at some point during the time period specified in the date time value (see Search notes on date searching)"
+              },
+              {
+                "name": "_list",
+                "value": "",
+                "type": "query",
+                "description": "Only include resource versions that are referenced in the specified list (current list references are allowed)"
+              }
+            ]
+          },
+          "docs": "Fast Healthcare Interoperability Resources Read the past states of the resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
