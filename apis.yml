@@ -168,7 +168,8 @@ apis:
   description: >-
     The Endpoint API from Fast Healthcare Interoperability Resources — 5 operation(s) for endpoint.
   humanURL: https://www.hl7.org/fhir/
-  tags:
+  tags: []
+  tags_raw:
   - Endpoint
   properties:
   - type: OpenAPI
@@ -230,6 +231,8 @@ apis:
     The  History API from Fast Healthcare Interoperability Resources — 1 operation(s) for  history.
   humanURL: https://www.hl7.org/fhir/
   tags:
+  - History
+  tags_raw:
   - ' History'
   properties:
   - type: OpenAPI
