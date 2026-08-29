@@ -18,40 +18,37 @@ edges:
   capability_id: BC-2850
   capability_id_l1: BC-2850
   capability_name: Pharmacy & Medication Management
-  confidence: 0.8
-  evidence: GET /MedicationDispense searchMedicationDispense ... Search all resources of type MedicationDispense;
-    POST /MedicationDispense createMedicationDispense
-  reason: The resource records medication dispensing events, which is provider-side pharmacy operations
-    (BC-2850). The spec does not distinguish inpatient vs outpatient/specialty dispensing, so no L2 is
-    asserted.
-- tag: ServiceRequest
-  spec_file: fhir-servicerequest-api-openapi.yml
-  capability_id: BC-2830.20
-  capability_id_l1: BC-2830
-  capability_name: Computerised Provider Order Entry
-  confidence: 0.8
-  evidence: POST /ServiceRequest createServiceRequest ... Create a new resource; GET /ServiceRequest searchServiceRequest
-  reason: FHIR ServiceRequest is the order/request resource for diagnostics, procedures and services,
-    i.e. provider order entry content. CRUD over ServiceRequest realises computerised provider order entry,
-    though the generic REST verbs leave some ambiguity (referral orders also flow through this resource).
-- tag: Specimen
-  spec_file: fhir-specimen-api-openapi.yml
-  capability_id: BC-2860.10
+  confidence: 0.75
+  evidence: Search all resources of type MedicationDispense based on a set of criteria
+  reason: MedicationDispense records the supply of a medication to a patient by a pharmacy, which is squarely
+    pharmacy dispensing. Inpatient (BC-2850.20) versus outpatient/specialty (BC-2850.30) cannot be distinguished
+    from the operations, so only the L1 is given.
+- tag: DiagnosticReport
+  spec_file: fhir-diagnosticreport-api-openapi.yml
+  capability_id: BC-2860.60
   capability_id_l1: BC-2860
-  capability_name: Laboratory Services Management
-  confidence: 0.8
-  evidence: GET /Specimen searchSpecimen Search all resources of type Specimen based on a set of criteria
-  reason: The Specimen resource represents collected samples for laboratory testing; the laboratory services
-    sub-capability explicitly covers "Specimen collection ... and laboratory information" management.
-    CRUD-only surface keeps this at 0.8.
+  capability_name: Diagnostic Results Management
+  confidence: 0.72
+  evidence: GET /DiagnosticReport  searchDiagnosticReport  Search all resources of type DiagnosticReport
+    based on a set of criteria
+  reason: CRUD and search over diagnostic reports (lab/imaging results) — the storage and distribution
+    of diagnostic results across modalities.
 - tag: Patient
   spec_file: fhir-patient-api-openapi.yml
   capability_id: BC-2800.20
   capability_id_l1: BC-2800
   capability_name: Patient Registration Management
   confidence: 0.7
-  evidence: POST /Patient createPatient Create a new resource; GET /Patient searchPatient Search all resources
-    of type Patient based on a set of criteria
-  reason: The FHIR Patient resource holds demographic and identity data for a patient, matching Patient
-    Registration Management (capture and stewardship of demographic, identity and consent data). Some
-    chance the intended reading is master patient index stewardship, hence 0.7.
+  evidence: GET /Patient searchPatient ... createPatient ... ONC 2015 Common Clinical Data Set (CCDS)
+    access requirement for Patient Selection
+  reason: The Patient resource holds demographic and identity data used to register and identify a patient,
+    matching Patient Registration Management; MPI stewardship is an alternative reading, hence 0.7.
+- tag: Specimen
+  spec_file: fhir-specimen-api-openapi.yml
+  capability_id: BC-2860.10
+  capability_id_l1: BC-2860
+  capability_name: Laboratory Services Management
+  confidence: 0.7
+  evidence: GET /Specimen searchSpecimen ... createSpecimen
+  reason: The Specimen resource records collected samples, which belongs to laboratory services (specimen
+    collection and LIS data); generic CRUD keeps confidence moderate.
