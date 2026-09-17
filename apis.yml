@@ -39,36 +39,6 @@ created: '2024-07-11'
 modified: '2026-05-19'
 specificationVersion: '0.23'
 apis:
-- aid: fhir:fhir-allergyintolerance-api
-  name: Fast Healthcare Interoperability Resources AllergyIntolerance API
-  description: >-
-    The AllergyIntolerance API from Fast Healthcare Interoperability Resources — 5 operation(s) for allergyintolerance.
-  humanURL: https://www.hl7.org/fhir/
-  tags:
-  - AllergyIntolerance
-  properties:
-  - type: OpenAPI
-    url: openapi/fhir-allergyintolerance-api-openapi.yml
-  - type: Documentation
-    url: https://www.hl7.org/fhir/
-  - type: PostmanCollection
-    url: >-
-      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
-- aid: fhir:fhir-careplan-api
-  name: Fast Healthcare Interoperability Resources CarePlan API
-  description: >-
-    The CarePlan API from Fast Healthcare Interoperability Resources — 5 operation(s) for careplan.
-  humanURL: https://www.hl7.org/fhir/
-  tags:
-  - CarePlan
-  properties:
-  - type: OpenAPI
-    url: openapi/fhir-careplan-api-openapi.yml
-  - type: Documentation
-    url: https://www.hl7.org/fhir/
-  - type: PostmanCollection
-    url: >-
-      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
 - aid: fhir:fhir-careteam-api
   name: Fast Healthcare Interoperability Resources CareTeam API
   description: >-
@@ -144,21 +114,6 @@ apis:
   - type: PostmanCollection
     url: >-
       https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
-- aid: fhir:fhir-documentreference-api
-  name: Fast Healthcare Interoperability Resources DocumentReference API
-  description: >-
-    The DocumentReference API from Fast Healthcare Interoperability Resources — 5 operation(s) for documentreference.
-  humanURL: https://www.hl7.org/fhir/
-  tags:
-  - DocumentReference
-  properties:
-  - type: OpenAPI
-    url: openapi/fhir-documentreference-api-openapi.yml
-  - type: Documentation
-    url: https://www.hl7.org/fhir/
-  - type: PostmanCollection
-    url: >-
-      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
 - aid: fhir:fhir-encounter-api
   name: Fast Healthcare Interoperability Resources Encounter API
   description: >-
@@ -216,21 +171,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/fhir-goal-api-openapi.yml
-  - type: Documentation
-    url: https://www.hl7.org/fhir/
-  - type: PostmanCollection
-    url: >-
-      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
-- aid: fhir:fhir-healthcareservice-api
-  name: Fast Healthcare Interoperability Resources HealthcareService API
-  description: >-
-    The HealthcareService API from Fast Healthcare Interoperability Resources — 5 operation(s) for healthcareservice.
-  humanURL: https://www.hl7.org/fhir/
-  tags:
-  - HealthcareService
-  properties:
-  - type: OpenAPI
-    url: openapi/fhir-healthcareservice-api-openapi.yml
   - type: Documentation
     url: https://www.hl7.org/fhir/
   - type: PostmanCollection
@@ -328,21 +268,6 @@ apis:
   - type: PostmanCollection
     url: >-
       https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
-- aid: fhir:fhir-medicationrequest-api
-  name: Fast Healthcare Interoperability Resources MedicationRequest API
-  description: >-
-    The MedicationRequest API from Fast Healthcare Interoperability Resources — 5 operation(s) for medicationrequest.
-  humanURL: https://www.hl7.org/fhir/
-  tags:
-  - MedicationRequest
-  properties:
-  - type: OpenAPI
-    url: openapi/fhir-medicationrequest-api-openapi.yml
-  - type: Documentation
-    url: https://www.hl7.org/fhir/
-  - type: PostmanCollection
-    url: >-
-      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
 - aid: fhir:fhir-metadata-api
   name: Fast Healthcare Interoperability Resources Metadata API
   description: >-
@@ -413,21 +338,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/fhir-practitioner-api-openapi.yml
-  - type: Documentation
-    url: https://www.hl7.org/fhir/
-  - type: PostmanCollection
-    url: >-
-      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
-- aid: fhir:fhir-practitionerrole-api
-  name: Fast Healthcare Interoperability Resources PractitionerRole API
-  description: >-
-    The PractitionerRole API from Fast Healthcare Interoperability Resources — 5 operation(s) for practitionerrole.
-  humanURL: https://www.hl7.org/fhir/
-  tags:
-  - PractitionerRole
-  properties:
-  - type: OpenAPI
-    url: openapi/fhir-practitionerrole-api-openapi.yml
   - type: Documentation
     url: https://www.hl7.org/fhir/
   - type: PostmanCollection
@@ -534,6 +444,101 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/fhir-specimen-api-openapi.yml
+  - type: Documentation
+    url: https://www.hl7.org/fhir/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
+- aid: fhir:fhir-allergy-intolerance-api
+  name: Fast Healthcare Interoperability Resources Allergy Intolerance API
+  description: >-
+    The Allergy Intolerance API from Fast Healthcare Interoperability Resources — 5 operation(s) for allergy
+    intolerance.
+  humanURL: https://www.hl7.org/fhir/
+  tags:
+  - Allergy Intolerance
+  properties:
+  - type: OpenAPI
+    url: openapi/fhir-allergy-intolerance-api-openapi.yml
+  - type: Documentation
+    url: https://www.hl7.org/fhir/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
+- aid: fhir:fhir-care-plan-api
+  name: Fast Healthcare Interoperability Resources Care plan API
+  description: >-
+    The Care plan API from Fast Healthcare Interoperability Resources — 5 operation(s) for care plan.
+  humanURL: https://www.hl7.org/fhir/
+  tags:
+  - Care plan
+  properties:
+  - type: OpenAPI
+    url: openapi/fhir-care-plan-api-openapi.yml
+  - type: Documentation
+    url: https://www.hl7.org/fhir/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
+- aid: fhir:fhir-document-reference-api
+  name: Fast Healthcare Interoperability Resources Document Reference API
+  description: >-
+    The Document Reference API from Fast Healthcare Interoperability Resources — 5 operation(s) for document
+    reference.
+  humanURL: https://www.hl7.org/fhir/
+  tags:
+  - Document Reference
+  properties:
+  - type: OpenAPI
+    url: openapi/fhir-document-reference-api-openapi.yml
+  - type: Documentation
+    url: https://www.hl7.org/fhir/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
+- aid: fhir:fhir-healthcare-service-api
+  name: Fast Healthcare Interoperability Resources Healthcare Service API
+  description: >-
+    The Healthcare Service API from Fast Healthcare Interoperability Resources — 5 operation(s) for healthcare
+    service.
+  humanURL: https://www.hl7.org/fhir/
+  tags:
+  - Healthcare Service
+  properties:
+  - type: OpenAPI
+    url: openapi/fhir-healthcare-service-api-openapi.yml
+  - type: Documentation
+    url: https://www.hl7.org/fhir/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
+- aid: fhir:fhir-medication-request-api
+  name: Fast Healthcare Interoperability Resources Medication Request API
+  description: >-
+    The Medication Request API from Fast Healthcare Interoperability Resources — 5 operation(s) for medication
+    request.
+  humanURL: https://www.hl7.org/fhir/
+  tags:
+  - Medication Request
+  properties:
+  - type: OpenAPI
+    url: openapi/fhir-medication-request-api-openapi.yml
+  - type: Documentation
+    url: https://www.hl7.org/fhir/
+  - type: PostmanCollection
+    url: >-
+      https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
+- aid: fhir:fhir-practitioner-role-api
+  name: Fast Healthcare Interoperability Resources Practitioner Role API
+  description: >-
+    The Practitioner Role API from Fast Healthcare Interoperability Resources — 5 operation(s) for practitioner
+    role.
+  humanURL: https://www.hl7.org/fhir/
+  tags:
+  - Practitioner Role
+  properties:
+  - type: OpenAPI
+    url: openapi/fhir-practitioner-role-api-openapi.yml
   - type: Documentation
     url: https://www.hl7.org/fhir/
   - type: PostmanCollection
