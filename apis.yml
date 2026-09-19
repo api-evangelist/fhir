@@ -319,6 +319,8 @@ apis:
     The Patient API from Fast Healthcare Interoperability Resources — 5 operation(s) for patient.
   humanURL: https://www.hl7.org/fhir/
   tags:
+  - Patients
+  tags_raw:
   - Patient
   properties:
   - type: OpenAPI
@@ -456,6 +458,8 @@ apis:
     intolerance.
   humanURL: https://www.hl7.org/fhir/
   tags:
+  - AllergyIntolerance
+  tags_raw:
   - Allergy Intolerance
   properties:
   - type: OpenAPI
@@ -471,6 +475,8 @@ apis:
     The Care plan API from Fast Healthcare Interoperability Resources — 5 operation(s) for care plan.
   humanURL: https://www.hl7.org/fhir/
   tags:
+  - CarePlan
+  tags_raw:
   - Care plan
   properties:
   - type: OpenAPI
@@ -487,6 +493,8 @@ apis:
     reference.
   humanURL: https://www.hl7.org/fhir/
   tags:
+  - DocumentReference
+  tags_raw:
   - Document Reference
   properties:
   - type: OpenAPI
@@ -503,6 +511,8 @@ apis:
     service.
   humanURL: https://www.hl7.org/fhir/
   tags:
+  - HealthcareService
+  tags_raw:
   - Healthcare Service
   properties:
   - type: OpenAPI
@@ -519,6 +529,8 @@ apis:
     request.
   humanURL: https://www.hl7.org/fhir/
   tags:
+  - MedicationRequest
+  tags_raw:
   - Medication Request
   properties:
   - type: OpenAPI
@@ -535,6 +547,8 @@ apis:
     role.
   humanURL: https://www.hl7.org/fhir/
   tags:
+  - PractitionerRole
+  tags_raw:
   - Practitioner Role
   properties:
   - type: OpenAPI
