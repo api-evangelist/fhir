@@ -11,8 +11,19 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 4
+edge_count: 5
 edges:
+- tag: ServiceRequest
+  spec_file: fhir-servicerequest-api-openapi.yml
+  capability_id: BC-2830.20
+  capability_id_l1: BC-2830
+  capability_name: Computerised Provider Order Entry
+  confidence: 0.8
+  evidence: POST /ServiceRequest createServiceRequest ... Create a new resource; GET /ServiceRequest searchServiceRequest
+  reason: FHIR ServiceRequest is the order/request resource for diagnostics, procedures and services,
+    i.e. provider order entry content. CRUD over ServiceRequest realises computerised provider order entry,
+    though the generic REST verbs leave some ambiguity (referral orders also flow through this resource).
+  recovered_from: healthcare-vertical-edges.json
 - tag: MedicationDispense
   spec_file: fhir-medicationdispense-api-openapi.yml
   capability_id: BC-2850
