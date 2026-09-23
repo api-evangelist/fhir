@@ -1,7 +1,7 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Metadata API
-  description: This Section describes the expected capabilities of the US Core Server actor which is responsible for providing responses to the queries submitted by the US Core Requestors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by US Core Servers are defined. Systems implementing this capability statement should meet the ONC 2015 Common Clinical Data Set (CCDS) access requirement for Patient Selection 170.315(g)(7) and Application Access - Data Category Request 170.315(g)(8) and the ONC [U.S. Core Data for Interoperability (USCDI) Version 4 July 2023](https://www.healthit.gov/sites/isa/files/2023-07/Final-USCDI-Version-4-July-2023-Final.pdf).
+  title: Fast Healthcare Interoperability Resources (FHIR) Metadata…
+  description: This Section describes the expected capabilities of the US Core Server actor which is responsible for providing responses to the queries submitted by the US Core Requestors.
   license:
     name: Creative Commons Zero v1.0 Universal
     url: http://spdx.org/licenses/CC0-1.0.html
@@ -17,7 +17,7 @@ paths:
     summary: Access to the Server's Capability Statement
     description: All FHIR Servers return a CapabilityStatement that describes what services they perform
     get:
-      summary: Fast Healthcare Interoperability Resources Return the server's capability statement
+      summary: Fast Healthcare Interoperability Resources Return the server's capability…
       operationId: metadata
       responses:
         '200':
@@ -47,6 +47,20 @@ paths:
       - Metadata
 components:
   parameters:
+    summary:
+      name: _summary
+      in: query
+      description: Requests the server to return a designated subset of the resource
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: string
+        enum:
+        - 'true'
+        - text
+        - data
+        - count
+        - 'false'
     elements:
       name: _elements
       in: query
@@ -67,20 +81,6 @@ components:
       style: form
       schema:
         type: boolean
-    summary:
-      name: _summary
-      in: query
-      description: Requests the server to return a designated subset of the resource
-      allowEmptyValue: true
-      style: form
-      schema:
-        type: string
-        enum:
-        - 'true'
-        - text
-        - data
-        - count
-        - 'false'
     format:
       name: _format
       in: query

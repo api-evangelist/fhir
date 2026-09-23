@@ -1,7 +1,7 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance PractitionerRole API
-  description: This Section describes the expected capabilities of the US Core Server actor which is responsible for providing responses to the queries submitted by the US Core Requestors. The complete list of FHIR profiles, RESTful operations, and search parameters supported by US Core Servers are defined. Systems implementing this capability statement should meet the ONC 2015 Common Clinical Data Set (CCDS) access requirement for Patient Selection 170.315(g)(7) and Application Access - Data Category Request 170.315(g)(8) and the ONC [U.S. Core Data for Interoperability (USCDI) Version 4 July 2023](https://www.healthit.gov/sites/isa/files/2023-07/Final-USCDI-Version-4-July-2023-Final.pdf).
+  title: Fast Healthcare Interoperability Resources (FHIR) Allergy…
+  description: This Section describes the expected capabilities of the US Core Server actor which is responsible for providing responses to the queries submitted by the US Core Requestors.
   license:
     name: Creative Commons Zero v1.0 Universal
     url: http://spdx.org/licenses/CC0-1.0.html
@@ -11,14 +11,14 @@ info:
     email: cgp@lists.HL7.org
     url: http://www.hl7.org/Special/committees/cgp
 tags:
-- name: PractitionerRole
+- name: Allergy Intolerance
 paths:
-  /PractitionerRole:
-    summary: Manager for resources of type PractitionerRole
-    description: 'The Manager for resources of type PractitionerRole: provides services to manage the collection of all the PractitionerRole instances'
+  /AllergyIntolerance:
+    summary: Manager for resources of type AllergyIntolerance
+    description: 'The Manager for resources of type AllergyIntolerance: provides services to manage the collection of all the AllergyIntolerance instances'
     get:
-      summary: Fast Healthcare Interoperability Resources Search all resources of type PractitionerRole based on a set of criteria
-      operationId: searchPractitionerRole
+      summary: Fast Healthcare Interoperability Resources Search all resources of type…
+      operationId: searchAllergyIntolerance
       responses:
         '200':
           description: the resource being returned
@@ -43,31 +43,31 @@ paths:
       - $ref: '#/components/parameters/pretty'
       - $ref: '#/components/parameters/summary'
       - $ref: '#/components/parameters/elements'
-      - name: practitioner
+      - name: clinical-status
         in: query
-        description: "**Practitioner that is able to provide the defined services for the organization**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+        description: "**active | inactive | resolved**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
         schema:
           type: string
-      - name: specialty
+      - name: patient
         in: query
-        description: "**The practitioner has this specialty at an organization**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
+        description: "**Who the sensitivity is for**  \n**NOTE**: This US Core SearchParameter definition extends the usage context of the\n[Conformance expectation extension](http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html)\n - multipleAnd\n - multipleOr\n - comparator\n - modifier\n - chain"
         schema:
           type: string
       tags:
-      - PractitionerRole
+      - Allergy Intolerance
     post:
       summary: Fast Healthcare Interoperability Resources Create a new resource
-      operationId: createPractitionerRole
+      operationId: createAllergyIntolerance
       requestBody:
         description: The new state of the resource
         required: true
         content:
           application/fhir+json:
             schema:
-              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/AllergyIntolerance
           application/fhir+xml:
             schema:
-              $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+              $ref: https://hl7.org/fhir/R4/AllergyIntolerance.xsd
       responses:
         '200':
           description: the resource being returned after being updated
@@ -79,10 +79,10 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/AllergyIntolerance
             application/fhir+xml:
               schema:
-                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+                $ref: https://hl7.org/fhir/R4/AllergyIntolerance.xsd
         default:
           description: Error, with details
           content:
@@ -98,13 +98,13 @@ paths:
       - $ref: '#/components/parameters/pretty'
       - $ref: '#/components/parameters/elements'
       tags:
-      - PractitionerRole
-  /PractitionerRole/{rid}:
-    summary: Read/Write/etc resource instance of type PractitionerRole
-    description: Access to services to manage the state of a single resource of type PractitionerRole
+      - Allergy Intolerance
+  /AllergyIntolerance/{rid}:
+    summary: Read/Write/etc resource instance of type AllergyIntolerance
+    description: Access to services to manage the state of a single resource of type AllergyIntolerance
     get:
-      summary: Fast Healthcare Interoperability Resources Read the current state of the resource
-      operationId: readPractitionerRole
+      summary: Fast Healthcare Interoperability Resources Read the current state of the…
+      operationId: readAllergyIntolerance
       responses:
         '200':
           description: the resource being returned
@@ -116,10 +116,10 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/AllergyIntolerance
             application/fhir+xml:
               schema:
-                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+                $ref: https://hl7.org/fhir/R4/AllergyIntolerance.xsd
         default:
           description: Error, with details
           content:
@@ -136,20 +136,20 @@ paths:
       - $ref: '#/components/parameters/pretty'
       - $ref: '#/components/parameters/elements'
       tags:
-      - PractitionerRole
+      - Allergy Intolerance
     put:
-      summary: Fast Healthcare Interoperability Resources Update the current state of the resource
-      operationId: updatePractitionerRole
+      summary: Fast Healthcare Interoperability Resources Update the current state of the…
+      operationId: updateAllergyIntolerance
       requestBody:
         description: The new state of the resource
         required: true
         content:
           application/fhir+json:
             schema:
-              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/AllergyIntolerance
           application/fhir+xml:
             schema:
-              $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+              $ref: https://hl7.org/fhir/R4/AllergyIntolerance.xsd
       responses:
         '200':
           description: the resource being returned after being updated
@@ -161,10 +161,10 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/AllergyIntolerance
             application/fhir+xml:
               schema:
-                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+                $ref: https://hl7.org/fhir/R4/AllergyIntolerance.xsd
         default:
           description: Error, with details
           content:
@@ -181,23 +181,23 @@ paths:
       - $ref: '#/components/parameters/pretty'
       - $ref: '#/components/parameters/elements'
       tags:
-      - PractitionerRole
+      - Allergy Intolerance
     patch:
-      summary: Fast Healthcare Interoperability Resources Change the current state of the resource by providing a patch - a series of change commands
-      operationId: patchPractitionerRole
+      summary: Fast Healthcare Interoperability Resources Change the current state of the…
+      operationId: patchAllergyIntolerance
       requestBody:
         description: The new state of the resource
         required: true
         content:
           application/json-patch+json:
             schema:
-              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+              $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/AllergyIntolerance
           application/fhir+json:
             schema:
               $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/Parameters
           application/xml-patch+xml:
             schema:
-              $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+              $ref: https://hl7.org/fhir/R4/AllergyIntolerance.xsd
           application/fhir+xml:
             schema:
               $ref: https://hl7.org/fhir/R4/Parameters.xsd
@@ -212,10 +212,10 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/AllergyIntolerance
             application/fhir+xml:
               schema:
-                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+                $ref: https://hl7.org/fhir/R4/AllergyIntolerance.xsd
         default:
           description: Error, with details
           content:
@@ -232,10 +232,10 @@ paths:
       - $ref: '#/components/parameters/pretty'
       - $ref: '#/components/parameters/elements'
       tags:
-      - PractitionerRole
+      - Allergy Intolerance
     delete:
-      summary: Fast Healthcare Interoperability Resources Delete the resource so that it no exists (no read, search etc)
-      operationId: deletePractitionerRole
+      summary: Fast Healthcare Interoperability Resources Delete the resource so that it no…
+      operationId: deleteAllergyIntolerance
       responses:
         '204':
           description: If the resource is deleted - no content is returned
@@ -256,13 +256,13 @@ paths:
       parameters:
       - $ref: '#/components/parameters/rid'
       tags:
-      - PractitionerRole
-  /PractitionerRole/{rid}/_history:
-    summary: Read past versions of resource instance of type PractitionerRole
-    description: Access to previous versions of a single resource of type PractitionerRole
+      - Allergy Intolerance
+  /AllergyIntolerance/{rid}/_history:
+    summary: Read past versions of resource instance of type AllergyIntolerance
+    description: Access to previous versions of a single resource of type AllergyIntolerance
     get:
       summary: Fast Healthcare Interoperability Resources Read the past states of the resource
-      operationId: histinstPractitionerRole
+      operationId: histinstAllergyIntolerance
       responses:
         '200':
           description: the resources being returned
@@ -307,13 +307,13 @@ paths:
         schema:
           type: string
       tags:
-      - PractitionerRole
-  /PractitionerRole/{rid}/_history/{hid}:
-    summary: Read a past version of resource instance of type PractitionerRole
-    description: Access a to specified previous version of a single resource of type PractitionerRole
+      - Allergy Intolerance
+  /AllergyIntolerance/{rid}/_history/{hid}:
+    summary: Read a past version of resource instance of type AllergyIntolerance
+    description: Access a to specified previous version of a single resource of type AllergyIntolerance
     get:
       summary: Fast Healthcare Interoperability Resources Read a past state of the resource
-      operationId: vreadPractitionerRole
+      operationId: vreadAllergyIntolerance
       responses:
         '200':
           description: the resource being returned
@@ -325,10 +325,10 @@ paths:
           content:
             application/fhir+json:
               schema:
-                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/PractitionerRole
+                $ref: https://hl7.org/fhir/R4/fhir.schema.json#/definitions/AllergyIntolerance
             application/fhir+xml:
               schema:
-                $ref: https://hl7.org/fhir/R4/PractitionerRole.xsd
+                $ref: https://hl7.org/fhir/R4/AllergyIntolerance.xsd
         default:
           description: Error, with details
           content:
@@ -346,13 +346,13 @@ paths:
       - $ref: '#/components/parameters/pretty'
       - $ref: '#/components/parameters/elements'
       tags:
-      - PractitionerRole
-  /PractitionerRole/_history:
-    summary: Read past versions of resources of type PractitionerRole
-    description: Access to previous versions of resourcez of type PractitionerRole
+      - Allergy Intolerance
+  /AllergyIntolerance/_history:
+    summary: Read past versions of resources of type AllergyIntolerance
+    description: Access to previous versions of resourcez of type AllergyIntolerance
     get:
       summary: Fast Healthcare Interoperability Resources Read the past states of the resource
-      operationId: histtypePractitionerRole
+      operationId: histtypeAllergyIntolerance
       responses:
         '200':
           description: the resources being returned
@@ -396,41 +396,9 @@ paths:
         schema:
           type: string
       tags:
-      - PractitionerRole
+      - Allergy Intolerance
 components:
   parameters:
-    pretty:
-      name: _pretty
-      in: query
-      description: Ask for a pretty printed response for human convenience
-      allowEmptyValue: true
-      style: form
-      schema:
-        type: boolean
-    format:
-      name: _format
-      in: query
-      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
-      allowEmptyValue: true
-      style: form
-      schema:
-        type: string
-        format: mime-type
-    rid:
-      name: rid
-      in: path
-      description: id of the resource (=Resource.id)
-      required: true
-      allowEmptyValue: false
-      style: simple
-      schema:
-        type: string
-    count:
-      name: _count
-      in: query
-      description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
-      schema:
-        type: number
     hid:
       name: hid
       in: path
@@ -440,6 +408,27 @@ components:
       style: simple
       schema:
         type: string
+    rid:
+      name: rid
+      in: path
+      description: id of the resource (=Resource.id)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+    elements:
+      name: _elements
+      in: query
+      description: Requests the server to return a collection of elements from the resource
+      allowEmptyValue: true
+      style: form
+      explode: false
+      schema:
+        type: array
+        format: string
+        items:
+          format: string
     summary:
       name: _summary
       in: query
@@ -454,18 +443,29 @@ components:
         - data
         - count
         - 'false'
-    elements:
-      name: _elements
+    count:
+      name: _count
       in: query
-      description: Requests the server to return a collection of elements from the resource
+      description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
+      schema:
+        type: number
+    format:
+      name: _format
+      in: query
+      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
       allowEmptyValue: true
       style: form
-      explode: false
       schema:
-        type: array
-        format: string
-        items:
-          format: string
+        type: string
+        format: mime-type
+    pretty:
+      name: _pretty
+      in: query
+      description: Ask for a pretty printed response for human convenience
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: boolean
 externalDocs:
   url: http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server
   description: FHIR CapabilityStatement
