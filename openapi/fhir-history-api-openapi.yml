@@ -11,7 +11,7 @@ info:
     email: cgp@lists.HL7.org
     url: http://www.hl7.org/Special/committees/cgp
 tags:
-- name: ' History'
+- name: History
 paths:
   /_history:
     summary: Read a past version of resource instance of all types
@@ -62,21 +62,26 @@ paths:
         schema:
           type: string
       tags:
-      - ' History'
+      - History
 components:
   parameters:
-    elements:
-      name: _elements
+    format:
+      name: _format
       in: query
-      description: Requests the server to return a collection of elements from the resource
+      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
       allowEmptyValue: true
       style: form
-      explode: false
       schema:
-        type: array
-        format: string
-        items:
-          format: string
+        type: string
+        format: mime-type
+    pretty:
+      name: _pretty
+      in: query
+      description: Ask for a pretty printed response for human convenience
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: boolean
     summary:
       name: _summary
       in: query
@@ -97,23 +102,18 @@ components:
       description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
       schema:
         type: number
-    format:
-      name: _format
+    elements:
+      name: _elements
       in: query
-      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
+      description: Requests the server to return a collection of elements from the resource
       allowEmptyValue: true
       style: form
+      explode: false
       schema:
-        type: string
-        format: mime-type
-    pretty:
-      name: _pretty
-      in: query
-      description: Ask for a pretty printed response for human convenience
-      allowEmptyValue: true
-      style: form
-      schema:
-        type: boolean
+        type: array
+        format: string
+        items:
+          format: string
 externalDocs:
   url: http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server
   description: FHIR CapabilityStatement

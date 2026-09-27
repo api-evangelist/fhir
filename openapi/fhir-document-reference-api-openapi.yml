@@ -426,56 +426,6 @@ paths:
       - Document Reference
 components:
   parameters:
-    hid:
-      name: hid
-      in: path
-      description: id of the history entry (=Resource.meta.versionId)
-      required: true
-      allowEmptyValue: false
-      style: simple
-      schema:
-        type: string
-    rid:
-      name: rid
-      in: path
-      description: id of the resource (=Resource.id)
-      required: true
-      allowEmptyValue: false
-      style: simple
-      schema:
-        type: string
-    elements:
-      name: _elements
-      in: query
-      description: Requests the server to return a collection of elements from the resource
-      allowEmptyValue: true
-      style: form
-      explode: false
-      schema:
-        type: array
-        format: string
-        items:
-          format: string
-    summary:
-      name: _summary
-      in: query
-      description: Requests the server to return a designated subset of the resource
-      allowEmptyValue: true
-      style: form
-      schema:
-        type: string
-        enum:
-        - 'true'
-        - text
-        - data
-        - count
-        - 'false'
-    count:
-      name: _count
-      in: query
-      description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
-      schema:
-        type: number
     format:
       name: _format
       in: query
@@ -493,6 +443,56 @@ components:
       style: form
       schema:
         type: boolean
+    summary:
+      name: _summary
+      in: query
+      description: Requests the server to return a designated subset of the resource
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: string
+        enum:
+        - 'true'
+        - text
+        - data
+        - count
+        - 'false'
+    hid:
+      name: hid
+      in: path
+      description: id of the history entry (=Resource.meta.versionId)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+    count:
+      name: _count
+      in: query
+      description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
+      schema:
+        type: number
+    elements:
+      name: _elements
+      in: query
+      description: Requests the server to return a collection of elements from the resource
+      allowEmptyValue: true
+      style: form
+      explode: false
+      schema:
+        type: array
+        format: string
+        items:
+          format: string
+    rid:
+      name: rid
+      in: path
+      description: id of the resource (=Resource.id)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
 externalDocs:
   url: http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server
   description: FHIR CapabilityStatement
