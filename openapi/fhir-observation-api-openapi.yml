@@ -430,37 +430,6 @@ components:
       schema:
         type: string
         format: mime-type
-    pretty:
-      name: _pretty
-      in: query
-      description: Ask for a pretty printed response for human convenience
-      allowEmptyValue: true
-      style: form
-      schema:
-        type: boolean
-    summary:
-      name: _summary
-      in: query
-      description: Requests the server to return a designated subset of the resource
-      allowEmptyValue: true
-      style: form
-      schema:
-        type: string
-        enum:
-        - 'true'
-        - text
-        - data
-        - count
-        - 'false'
-    hid:
-      name: hid
-      in: path
-      description: id of the history entry (=Resource.meta.versionId)
-      required: true
-      allowEmptyValue: false
-      style: simple
-      schema:
-        type: string
     count:
       name: _count
       in: query
@@ -479,10 +448,41 @@ components:
         format: string
         items:
           format: string
+    summary:
+      name: _summary
+      in: query
+      description: Requests the server to return a designated subset of the resource
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: string
+        enum:
+        - 'true'
+        - text
+        - data
+        - count
+        - 'false'
     rid:
       name: rid
       in: path
       description: id of the resource (=Resource.id)
+      required: true
+      allowEmptyValue: false
+      style: simple
+      schema:
+        type: string
+    pretty:
+      name: _pretty
+      in: query
+      description: Ask for a pretty printed response for human convenience
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: boolean
+    hid:
+      name: hid
+      in: path
+      description: id of the history entry (=Resource.meta.versionId)
       required: true
       allowEmptyValue: false
       style: simple
