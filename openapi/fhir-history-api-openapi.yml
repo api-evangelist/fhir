@@ -65,33 +65,12 @@ paths:
       - History
 components:
   parameters:
-    format:
-      name: _format
-      in: query
-      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
-      allowEmptyValue: true
-      style: form
-      schema:
-        type: string
-        format: mime-type
     count:
       name: _count
       in: query
       description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
       schema:
         type: number
-    elements:
-      name: _elements
-      in: query
-      description: Requests the server to return a collection of elements from the resource
-      allowEmptyValue: true
-      style: form
-      explode: false
-      schema:
-        type: array
-        format: string
-        items:
-          format: string
     summary:
       name: _summary
       in: query
@@ -106,6 +85,18 @@ components:
         - data
         - count
         - 'false'
+    elements:
+      name: _elements
+      in: query
+      description: Requests the server to return a collection of elements from the resource
+      allowEmptyValue: true
+      style: form
+      explode: false
+      schema:
+        type: array
+        format: string
+        items:
+          format: string
     pretty:
       name: _pretty
       in: query
@@ -114,6 +105,15 @@ components:
       style: form
       schema:
         type: boolean
+    format:
+      name: _format
+      in: query
+      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: string
+        format: mime-type
 externalDocs:
   url: http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server
   description: FHIR CapabilityStatement

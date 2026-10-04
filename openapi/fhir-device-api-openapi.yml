@@ -404,33 +404,21 @@ paths:
       - Device
 components:
   parameters:
-    format:
-      name: _format
-      in: query
-      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
-      allowEmptyValue: true
-      style: form
+    hid:
+      name: hid
+      in: path
+      description: id of the history entry (=Resource.meta.versionId)
+      required: true
+      allowEmptyValue: false
+      style: simple
       schema:
         type: string
-        format: mime-type
     count:
       name: _count
       in: query
       description: The maximum number of search results on a page. The server is not bound to return the number requested, but cannot return more
       schema:
         type: number
-    elements:
-      name: _elements
-      in: query
-      description: Requests the server to return a collection of elements from the resource
-      allowEmptyValue: true
-      style: form
-      explode: false
-      schema:
-        type: array
-        format: string
-        items:
-          format: string
     summary:
       name: _summary
       in: query
@@ -445,6 +433,26 @@ components:
         - data
         - count
         - 'false'
+    elements:
+      name: _elements
+      in: query
+      description: Requests the server to return a collection of elements from the resource
+      allowEmptyValue: true
+      style: form
+      explode: false
+      schema:
+        type: array
+        format: string
+        items:
+          format: string
+    pretty:
+      name: _pretty
+      in: query
+      description: Ask for a pretty printed response for human convenience
+      allowEmptyValue: true
+      style: form
+      schema:
+        type: boolean
     rid:
       name: rid
       in: path
@@ -454,23 +462,15 @@ components:
       style: simple
       schema:
         type: string
-    pretty:
-      name: _pretty
+    format:
+      name: _format
       in: query
-      description: Ask for a pretty printed response for human convenience
+      description: 'Specify alternative response formats by their MIME-types (when a client is unable acccess accept: header)'
       allowEmptyValue: true
       style: form
       schema:
-        type: boolean
-    hid:
-      name: hid
-      in: path
-      description: id of the history entry (=Resource.meta.versionId)
-      required: true
-      allowEmptyValue: false
-      style: simple
-      schema:
         type: string
+        format: mime-type
 externalDocs:
   url: http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server
   description: FHIR CapabilityStatement
