@@ -547,6 +547,12 @@ apis:
     url: >-
       https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668
 common:
+  - type: Plans
+    url: plans/fhir-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/fhir-rate-limits.yml
+  - type: FinOps
+    url: finops/fhir-finops.yml
   - type: CapabilityMap
     url: capabilities/fhir-capability-edges.yml
     name: Fast Healthcare Interoperability Resources Business Capability Map
