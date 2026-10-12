@@ -1,0 +1,30 @@
+# DERIVED by build-integration-preconfigs.py (roadmap#949). Overlay on the PARTNER's contract:
+# where xcures's enum names fhir, and what that value is.
+overlay: 1.0.0
+info:
+  title: fhir as a processor-connection in xcures's contract
+  version: 1.0.0
+extends: https://raw.githubusercontent.com/api-evangelist/xcures/refs/heads/main/openapi/xcures-document-api-openapi.yml
+actions:
+- target: $.components.schemas.DocumentDetail.properties.source
+  update:
+    x-apievangelist-integration:
+      values:
+        fhir:
+          provider: fhir
+          relationship: processor-connection
+          evidence: https://github.com/api-evangelist/xcures/blob/main/openapi/xcures-document-api-openapi.yml
+      method: derived
+      generated: '2026-10-12'
+      generator: build-integration-preconfigs.py
+- target: $.components.schemas.DocumentSummary.properties.source
+  update:
+    x-apievangelist-integration:
+      values:
+        fhir:
+          provider: fhir
+          relationship: processor-connection
+          evidence: https://github.com/api-evangelist/xcures/blob/main/openapi/xcures-document-api-openapi.yml
+      method: derived
+      generated: '2026-10-12'
+      generator: build-integration-preconfigs.py

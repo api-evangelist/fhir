@@ -1,0 +1,34 @@
+edges:
+- partner_name: azure-health
+  partner: azure-health
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/azure-health/blob/main/openapi/azure-health-resource-api-openapi.yml
+  contract_reference:
+    repo: azure-health
+    spec_file: azure-health-resource-api-openapi.yml
+    value: fhir
+    property: ServicesResource.kind
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+- partner_name: xcures
+  partner: xcures
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/xcures/blob/main/openapi/xcures-document-api-openapi.yml
+  contract_reference:
+    repo: xcures
+    spec_file: xcures-document-api-openapi.yml
+    value: fhir
+    property: schemas.DocumentDetail.source
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+generated: '2026-10-12'
+method: searched
+checked: []
