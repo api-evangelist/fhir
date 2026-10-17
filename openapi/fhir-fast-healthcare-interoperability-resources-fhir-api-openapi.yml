@@ -84,6 +84,18 @@ paths:
       - Fast Healthcare Interoperability Resources (FHIR)
 components:
   parameters:
+    elements:
+      name: _elements
+      in: query
+      description: Requests the server to return a collection of elements from the resource
+      allowEmptyValue: true
+      style: form
+      explode: false
+      schema:
+        type: array
+        format: string
+        items:
+          format: string
     summary:
       name: _summary
       in: query
@@ -98,18 +110,6 @@ components:
         - data
         - count
         - 'false'
-    elements:
-      name: _elements
-      in: query
-      description: Requests the server to return a collection of elements from the resource
-      allowEmptyValue: true
-      style: form
-      explode: false
-      schema:
-        type: array
-        format: string
-        items:
-          format: string
     pretty:
       name: _pretty
       in: query
