@@ -1,4 +1,4 @@
-# Fast Healthcare Interoperability Resources (FHIR)
+# Fast Healthcare Interoperability Resources
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,55 +66,169 @@
 
 FHIR (Fast Healthcare Interoperability Resources) is a platform specification developed by HL7 that defines a set of capabilities for use across the healthcare process, in all jurisdictions, and in many different clinical and administrative contexts. It standardizes how electronic health information is exchanged between systems via REST APIs.
 
-This repository manages the [APIs.io](https://apis.io) listing for the [FHIR API](https://www.hl7.org/fhir/http.html). It contains the following artifacts:
+**Areas:** Healthcare · Standards · Interoperability
 
-- [**APIs.json**](apis.yml) - The index for all business and technical details of the API.
-- [**OpenAPI**](openapi/fhir-openapi-original.yml) - The technical details of the API.
-- [**Bruno Collection**](bruno/fast-healthcare-interoperability-resources) - An executable [Bruno collection](https://bit.ly/4fpe6FO) for the API.
+## Fast Healthcare Interoperability Resources on APIs.io
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/fhir/refs/heads/main/apis.yml)
+Everything profiled for Fast Healthcare Interoperability Resources is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fhir/](https://apis.io/providers/fhir/)** — or go straight to one of the APIs or properties below.
 
-## Scope
+### APIs (33)
 
-- **Type:** Index
-- **Position:** Consuming
-- **Access:** 3rd-Party
+- [Fast Healthcare Interoperability Resources CareTeam API](https://apis.io/apis/fhir/fhir-careteam-api/) — The CareTeam API from Fast Healthcare Interoperability Resources — 5 operation(s) for careteam.
+- [Fast Healthcare Interoperability Resources Condition API](https://apis.io/apis/fhir/fhir-condition-api/) — The Condition API from Fast Healthcare Interoperability Resources — 5 operation(s) for condition.
+- [Fast Healthcare Interoperability Resources Coverage API](https://apis.io/apis/fhir/fhir-coverage-api/) — The Coverage API from Fast Healthcare Interoperability Resources — 5 operation(s) for coverage.
+- [Fast Healthcare Interoperability Resources Device API](https://apis.io/apis/fhir/fhir-device-api/) — The Device API from Fast Healthcare Interoperability Resources — 5 operation(s) for device.
+- [Fast Healthcare Interoperability Resources DiagnosticReport API](https://apis.io/apis/fhir/fhir-diagnosticreport-api/) — The DiagnosticReport API from Fast Healthcare Interoperability Resources — 5 operation(s) for diagnosticreport.
+- [Fast Healthcare Interoperability Resources Encounter API](https://apis.io/apis/fhir/fhir-encounter-api/) — The Encounter API from Fast Healthcare Interoperability Resources — 5 operation(s) for encounter.
+- [Fast Healthcare Interoperability Resources Endpoint API](https://apis.io/apis/fhir/fhir-endpoint-api/) — The Endpoint API from Fast Healthcare Interoperability Resources — 5 operation(s) for endpoint.
+- [Fast Healthcare Interoperability Resources Fast Healthcare Interoperability Resources (FHIR) API](https://apis.io/apis/fhir/fhir-fast-healthcare-interoperability-resources-fhir-api/) — The Fast Healthcare Interoperability Resources (FHIR) API from Fast Healthcare Interoperability Resources — 1 operation(s) for fast healthcare…
+- [Fast Healthcare Interoperability Resources Goal API](https://apis.io/apis/fhir/fhir-goal-api/) — The Goal API from Fast Healthcare Interoperability Resources — 5 operation(s) for goal.
+- [Fast Healthcare Interoperability Resources  History API](https://apis.io/apis/fhir/fhir-history-api/) — The History API from Fast Healthcare Interoperability Resources — 1 operation(s) for history.
+- [Fast Healthcare Interoperability Resources Immunization API](https://apis.io/apis/fhir/fhir-immunization-api/) — The Immunization API from Fast Healthcare Interoperability Resources — 5 operation(s) for immunization.
+- [Fast Healthcare Interoperability Resources Location API](https://apis.io/apis/fhir/fhir-location-api/) — The Location API from Fast Healthcare Interoperability Resources — 5 operation(s) for location.
+- [Fast Healthcare Interoperability Resources Media API](https://apis.io/apis/fhir/fhir-media-api/) — The Media API from Fast Healthcare Interoperability Resources — 5 operation(s) for media.
+- [Fast Healthcare Interoperability Resources Medication API](https://apis.io/apis/fhir/fhir-medication-api/) — The Medication API from Fast Healthcare Interoperability Resources — 5 operation(s) for medication.
+- [Fast Healthcare Interoperability Resources MedicationDispense API](https://apis.io/apis/fhir/fhir-medicationdispense-api/) — The MedicationDispense API from Fast Healthcare Interoperability Resources — 5 operation(s) for medicationdispense.
+- [Fast Healthcare Interoperability Resources Metadata API](https://apis.io/apis/fhir/fhir-metadata-api/) — The Metadata API from Fast Healthcare Interoperability Resources — 1 operation(s) for metadata.
+- [Fast Healthcare Interoperability Resources Observation API](https://apis.io/apis/fhir/fhir-observation-api/) — The Observation API from Fast Healthcare Interoperability Resources — 5 operation(s) for observation.
+- [Fast Healthcare Interoperability Resources Organization API](https://apis.io/apis/fhir/fhir-organization-api/) — The Organization API from Fast Healthcare Interoperability Resources — 5 operation(s) for organization.
+- [Fast Healthcare Interoperability Resources Patient API](https://apis.io/apis/fhir/fhir-patient-api/) — The Patient API from Fast Healthcare Interoperability Resources — 5 operation(s) for patient.
+- [Fast Healthcare Interoperability Resources Practitioner API](https://apis.io/apis/fhir/fhir-practitioner-api/) — The Practitioner API from Fast Healthcare Interoperability Resources — 5 operation(s) for practitioner.
+- [Fast Healthcare Interoperability Resources Procedure API](https://apis.io/apis/fhir/fhir-procedure-api/) — The Procedure API from Fast Healthcare Interoperability Resources — 5 operation(s) for procedure.
+- [Fast Healthcare Interoperability Resources Provenance API](https://apis.io/apis/fhir/fhir-provenance-api/) — The Provenance API from Fast Healthcare Interoperability Resources — 5 operation(s) for provenance.
+- [Fast Healthcare Interoperability Resources Questionnaire API](https://apis.io/apis/fhir/fhir-questionnaire-api/) — The Questionnaire API from Fast Healthcare Interoperability Resources — 5 operation(s) for questionnaire.
+- [Fast Healthcare Interoperability Resources QuestionnaireResponse API](https://apis.io/apis/fhir/fhir-questionnaireresponse-api/) — The QuestionnaireResponse API from Fast Healthcare Interoperability Resources — 5 operation(s) for questionnaireresponse.
+- [Fast Healthcare Interoperability Resources RelatedPerson API](https://apis.io/apis/fhir/fhir-relatedperson-api/) — The RelatedPerson API from Fast Healthcare Interoperability Resources — 5 operation(s) for relatedperson.
+- [Fast Healthcare Interoperability Resources ServiceRequest API](https://apis.io/apis/fhir/fhir-servicerequest-api/) — The ServiceRequest API from Fast Healthcare Interoperability Resources — 5 operation(s) for servicerequest.
+- [Fast Healthcare Interoperability Resources Specimen API](https://apis.io/apis/fhir/fhir-specimen-api/) — The Specimen API from Fast Healthcare Interoperability Resources — 5 operation(s) for specimen.
+- [Fast Healthcare Interoperability Resources Allergy Intolerance API](https://apis.io/apis/fhir/fhir-allergy-intolerance-api/) — The Allergy Intolerance API from Fast Healthcare Interoperability Resources — 5 operation(s) for allergy intolerance.
+- [Fast Healthcare Interoperability Resources Care plan API](https://apis.io/apis/fhir/fhir-care-plan-api/) — The Care plan API from Fast Healthcare Interoperability Resources — 5 operation(s) for care plan.
+- [Fast Healthcare Interoperability Resources Document Reference API](https://apis.io/apis/fhir/fhir-document-reference-api/) — The Document Reference API from Fast Healthcare Interoperability Resources — 5 operation(s) for document reference.
+- [Fast Healthcare Interoperability Resources Healthcare Service API](https://apis.io/apis/fhir/fhir-healthcare-service-api/) — The Healthcare Service API from Fast Healthcare Interoperability Resources — 5 operation(s) for healthcare service.
+- [Fast Healthcare Interoperability Resources Medication Request API](https://apis.io/apis/fhir/fhir-medication-request-api/) — The Medication Request API from Fast Healthcare Interoperability Resources — 5 operation(s) for medication request.
+- [Fast Healthcare Interoperability Resources Practitioner Role API](https://apis.io/apis/fhir/fhir-practitioner-role-api/) — The Practitioner Role API from Fast Healthcare Interoperability Resources — 5 operation(s) for practitioner role.
 
-## Tags
+### Published properties
 
-- Healthcare, Standards, Interoperability
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### Agentic access (1)
 
-- **Created:** 2024-07-11
-- **Modified:** 2026-04-28
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## APIs
+- [Fhir Agentic Access](https://apis.io/agentic-access/fhir/fhir-agentic-access/)
 
-### US Core Server CapabilityStatement
-This section describes the expected capabilities of the US Core Server actor which is responsible for providing responses to the queries submitted by US Core Requestors. Implementations meet ONC 2015 Common Clinical Data Set (CCDS) Patient Selection 170.315(g)(7) and Application Access - Data Category Request 170.315(g)(8) requirements as well as USCDI Version 4 (July 2023).
+#### Collections (34)
 
-**Human URL:** [https://www.hl7.org/fhir/](https://www.hl7.org/fhir/)
+Postman and Open Collection request collections.
 
-#### Tags
+- [Fast Healthcare Interoperability Resources Bruno Collection](https://apis.io/collections/fhir/bruno/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance API](https://apis.io/collections/fhir/open-fhir-allergyintolerance-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance CarePlan API](https://apis.io/collections/fhir/open-fhir-careplan-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance CareTeam API](https://apis.io/collections/fhir/open-fhir-careteam-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Condition API](https://apis.io/collections/fhir/open-fhir-condition-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Coverage API](https://apis.io/collections/fhir/open-fhir-coverage-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Device API](https://apis.io/collections/fhir/open-fhir-device-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance DiagnosticReport API](https://apis.io/collections/fhir/open-fhir-diagnosticreport-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance DocumentReference API](https://apis.io/collections/fhir/open-fhir-documentreference-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Encounter API](https://apis.io/collections/fhir/open-fhir-encounter-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Endpoint API](https://apis.io/collections/fhir/open-fhir-endpoint-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Fast Healthcare Interoperability Resources (FHIR) API](https://apis.io/collections/fhir/open-fhir-fast-healthcare-interoperability-resources-fhir-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Goal API](https://apis.io/collections/fhir/open-fhir-goal-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance HealthcareService API](https://apis.io/collections/fhir/open-fhir-healthcareservice-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance  History API](https://apis.io/collections/fhir/open-fhir-history-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Immunization API](https://apis.io/collections/fhir/open-fhir-immunization-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Location API](https://apis.io/collections/fhir/open-fhir-location-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Media API](https://apis.io/collections/fhir/open-fhir-media-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Medication API](https://apis.io/collections/fhir/open-fhir-medication-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance MedicationDispense API](https://apis.io/collections/fhir/open-fhir-medicationdispense-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance MedicationRequest API](https://apis.io/collections/fhir/open-fhir-medicationrequest-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Metadata API](https://apis.io/collections/fhir/open-fhir-metadata-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Observation API](https://apis.io/collections/fhir/open-fhir-observation-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Organization API](https://apis.io/collections/fhir/open-fhir-organization-api/)
+- [Fast Healthcare Interoperability Resources (FHIR) AllergyIntolerance Patient API](https://apis.io/collections/fhir/open-fhir-patient-api/)
+- …and 9 more published on APIs.io
 
-- Healthcare, Standards, Interoperability
+#### Security (1)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://www.hl7.org/fhir/)
-- [OpenAPI](openapi/fhir-openapi-original.yml)
-- [PostmanCollection](https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/collection/35240-f4ba6100-8f52-4e08-8071-afb9f06e2668)
+- [Fhir Domain Security](https://apis.io/security/fhir/fhir-domain-security/)
 
-## Common Properties
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Fhir Plans Pricing](https://apis.io/plans/fhir/fhir-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Fhir Rate Limits](https://apis.io/rate-limits/fhir/fhir-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Fhir Finops](https://apis.io/finops/fhir/fhir-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.hl7.org/fhir/)
-- [PostmanWorkspace](https://www.postman.com/api-evangelist/fast-healthcare-interoperability-resources-fhir/overview)
+- [GitHub](https://github.com/HL7)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 18.4** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 38.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 7.9 |
 
-If you have any questions about this API please submit an issue or email kin@apievangelist.com.
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 4.7** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/fhir/](https://apis.io/providers/fhir/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Fast Healthcare Interoperability Resources: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fhir/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
